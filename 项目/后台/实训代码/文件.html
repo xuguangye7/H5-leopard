@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="1.css">
+    <link rel="stylesheet" href="1.js">
+</head>
+<body>
+    <div class="home">
+        <div class="home-left">
+            <div style="width: 100%; height: 200px;">
+                <img src="../img/u=3975140816,2929299544&fm=26&gp=0.jpg" alt="" width="100px" height="100px" style="margin-left: 125px;margin-top: 20px;">
+            </div>
+            <div class="home-left-ul">
+                <div class="ul-li">
+                    <img src="../img/shouye0.png" alt="" width="30px" height="30px" style="margin-left: 15px;float: left;">
+                    <a style="margin-left: 10px;margin-top: 5px;float: left;color: #fff;text-decoration: none;" href="首页.html">首页</a>
+                    <div class="ul-li-button"></div>
+                </div>
+                <div class="ul-li">
+                    <img src="../img/系统0.png" alt="" width="30px" height="30px" style="margin-left: 15px;float: left;">
+                    <a style="margin-left: 10px;margin-top: 5px;float: left;color: #fff;text-decoration: none;" href="系统.html">系统管理</a>
+                    <div class="ul-li-button"></div>
+                </div>
+                <div class="ul-li">
+                    <img src="../img/用户0.png" alt="" width="30px" height="30px" style="margin-left: 15px;float: left;">
+                    <a style="margin-left: 10px;margin-top: 5px;float: left;color: #fff;text-decoration: none;" href="用户.html">用户管理</a>
+                    <div class="ul-li-button"></div>
+                </div>
+                <div class="ul-li">
+                    <img src="../img/帖子0.png" alt="" width="30px" height="30px" style="margin-left: 15px;float: left;">
+                    <a style="margin-left: 10px;margin-top: 5px;float: left;color: #fff;text-decoration: none;" href="帖子.html">帖子管理</a>
+                    <div class="ul-li-button"></div>
+                </div>
+                <div class="ul-li">
+                    <img src="../img/文件0.png" alt="" width="30px" height="30px" style="margin-left: 15px;float: left;">
+                    <a style="margin-left: 10px;margin-top: 5px;float: left;color: #fff;text-decoration: none;" href="文件.html">文件管理</a>
+                    <div class="ul-li-button"></div>
+                </div>
+                
+            </div>
+        </div>
+
+
+        <div style="width:1050px; float: left;height:80px;">
+            <input type="search" placeholder="请输入您要查找的关键字" 
+                style="border-radius: 10px;
+                width:250px;
+                height:40px;
+                margin-top: 20px;
+                margin-left:70px;
+                border:1px solid #000;
+                line-height: 40px;
+                text-align: center;
+                float: left;
+            ">
+            <div class="tu">
+                <img src="../img/icon_notice.png" alt="">
+                <img src="../img/email.png" alt="" style="width: 40px;">
+            </div>
+        </div>
+
+
+        <div style="width:1050px;float: left;height:240px;">
+            <ul class="wendang">
+                <li>
+                    <button style="background: #fff;border:1px solid #000" onclick="change1()">
+                        <img src="../img/wendang.png" alt="" style="float: left;">
+                        <span style="float: left;width: 200px;text-align: center;">文档管理</span>
+                    </button>
+                </li>
+                <li>
+                    <button style="background: #fff;border:1px solid #000" onclick="change2()">
+                        <img src="../img/ppt.png" alt="" style="float: left;">
+                        <span style="float: left;width: 200px;text-align: center;">PPT管理</span>
+                    </button>
+                </li>
+                <li>
+                    <button style="background: #fff;border:1px solid #000" onclick="change3()">
+                        <img src="../img/shipin_Linear.png" alt="" style="float: left;">
+                        <span style="float: left;width: 200px;text-align: center;">视频管理</span>
+                    </button>
+                </li>
+                <li>
+                    <button style="background: #fff;border:1px solid #000" onclick="change4()">
+                        <img src="../img/icon-.png" alt="" style="float: left;">
+                        <span style="float: left;width: 200px;text-align: center;">图片管理</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <div style="width:1040px;margin-left:10px;float: left;display: block;" id="first">
+            <ul class="liebiao">
+                <li>
+                    <span style="margin-left:120px;float: left;">1</span>
+                    <span style="margin-left:180px;float: left;">name</span>
+                    <span style="margin-left:180px;float: left;">123/234/345</span>
+                    <button style="background:green;
+                            height:30px;width:80px;
+                            border:1px solid green;
+                            margin-left:180px;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">编辑</button>
+                    <button style="background:red;
+                            height:30px;width:80px;
+                            border:1px solid red;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">删除</button>
+                </li>
+                <li>
+                    <span style="margin-left:120px;float: left;">1</span>
+                    <span style="margin-left:180px;float: left;">name</span>
+                    <span style="margin-left:180px;float: left;">123/234/345</span>
+                    <button style="background:green;
+                            height:30px;width:80px;
+                            border:1px solid green;
+                            margin-left:180px;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">编辑</button>
+                    <button style="background:red;
+                            height:30px;width:80px;
+                            border:1px solid red;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">删除</button>
+                </li>
+            </ul>
+        </div>
+        <div style="width:1040px;margin-left:10px;float: left;display: none;" id="second">
+            <ul class="liebiao">
+                <li>
+                    <span style="margin-left:120px;float: left;">2</span>
+                    <span style="margin-left:180px;float: left;">name</span>
+                    <span style="margin-left:180px;float: left;">123/234/345</span>
+                    <button style="background:green;
+                            height:30px;width:80px;
+                            border:1px solid green;
+                            margin-left:180px;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">编辑</button>
+                    <button style="background:red;
+                            height:30px;width:80px;
+                            border:1px solid red;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">删除</button>
+                </li>
+                <li>
+                    <span style="margin-left:120px;float: left;">2</span>
+                    <span style="margin-left:180px;float: left;">name</span>
+                    <span style="margin-left:180px;float: left;">123/234/345</span>
+                    <button style="background:green;
+                            height:30px;width:80px;
+                            border:1px solid green;
+                            margin-left:180px;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">编辑</button>
+                    <button style="background:red;
+                            height:30px;width:80px;
+                            border:1px solid red;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">删除</button>
+                </li>
+                <li>
+                    <span style="margin-left:120px;float: left;">2</span>
+                    <span style="margin-left:180px;float: left;">name</span>
+                    <span style="margin-left:180px;float: left;">123/234/345</span>
+                    <button style="background:green;
+                            height:30px;width:80px;
+                            border:1px solid green;
+                            margin-left:180px;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">编辑</button>
+                    <button style="background:red;
+                            height:30px;width:80px;
+                            border:1px solid red;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">删除</button>
+                </li>
+            </ul>
+        </div>
+
+        <div style="width:1040px;margin-left:10px;float: left;display: none;" id="third">
+            <ul class="liebiao">
+                <li>
+                    <span style="margin-left:120px;float: left;">2</span>
+                    <span style="margin-left:180px;float: left;">name</span>
+                    <span style="margin-left:180px;float: left;">123/234/345</span>
+                    <button style="background:green;
+                            height:30px;width:80px;
+                            border:1px solid green;
+                            margin-left:180px;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">编辑</button>
+                    <button style="background:red;
+                            height:30px;width:80px;
+                            border:1px solid red;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">删除</button>
+                </li>
+                <li>
+                    <span style="margin-left:120px;float: left;">2</span>
+                    <span style="margin-left:180px;float: left;">name</span>
+                    <span style="margin-left:180px;float: left;">123/234/345</span>
+                    <button style="background:green;
+                            height:30px;width:80px;
+                            border:1px solid green;
+                            margin-left:180px;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">编辑</button>
+                    <button style="background:red;
+                            height:30px;width:80px;
+                            border:1px solid red;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">删除</button>
+                </li>
+            </ul>
+        </div>
+
+        <div style="width:1040px;margin-left:10px;float: left;display: none;" id="fourth">
+            <ul class="liebiao">
+                <li>
+                    <span style="margin-left:120px;float: left;">2</span>
+                    <span style="margin-left:180px;float: left;">name</span>
+                    <span style="margin-left:180px;float: left;">123/234/345</span>
+                    <button style="background:green;
+                            height:30px;width:80px;
+                            border:1px solid green;
+                            margin-left:180px;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">编辑</button>
+                    <button style="background:red;
+                            height:30px;width:80px;
+                            border:1px solid red;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">删除</button>
+                </li>
+                <li>
+                    <span style="margin-left:120px;float: left;">2</span>
+                    <span style="margin-left:180px;float: left;">name</span>
+                    <span style="margin-left:180px;float: left;">123/234/345</span>
+                    <button style="background:green;
+                            height:30px;width:80px;
+                            border:1px solid green;
+                            margin-left:180px;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">编辑</button>
+                    <button style="background:red;
+                            height:30px;width:80px;
+                            border:1px solid red;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">删除</button>
+                </li>
+                <li>
+                    <span style="margin-left:120px;float: left;">4</span>
+                    <span style="margin-left:180px;float: left;">name</span>
+                    <span style="margin-left:180px;float: left;">123/234/345</span>
+                    <button style="background:green;
+                            height:30px;width:80px;
+                            border:1px solid green;
+                            margin-left:180px;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">编辑</button>
+                    <button style="background:red;
+                            height:30px;width:80px;
+                            border:1px solid red;
+                            color:white;
+                            float: left;
+                            margin-top: 10px;
+                    ">删除</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function change1(){
+            var divid=document.getElementById('first');
+            var divid1=document.getElementById('second');
+            var divid2=document.getElementById('third');
+            var divid3=document.getElementById('fourth');
+            divid.style.display='block';
+            divid1.style.display='none'
+            divid2.style.display='none'
+            divid3.style.display='none'
+        }
+        function change2(){
+            var divid=document.getElementById('first');
+            var divid1=document.getElementById('second');
+            var divid2=document.getElementById('third');
+            var divid3=document.getElementById('fourth');
+            divid.style.display='none';
+            divid1.style.display='block'
+            divid2.style.display='none'
+            divid3.style.display='none'
+        }
+        function change3(){
+            var divid=document.getElementById('first');
+            var divid1=document.getElementById('second');
+            var divid2=document.getElementById('third');
+            var divid3=document.getElementById('fourth');
+            divid.style.display='none';
+            divid1.style.display='none'
+            divid2.style.display='block'
+            divid3.style.display='none'
+        }
+        function change4(){
+            var divid=document.getElementById('first');
+            var divid1=document.getElementById('second');
+            var divid2=document.getElementById('third');
+            var divid3=document.getElementById('fourth');
+            divid.style.display='none';
+            divid1.style.display='none'
+            divid2.style.display='none'
+            divid3.style.display='block'
+        }
+    </script>
+</body>
+</html>

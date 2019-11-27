@@ -1,0 +1,277 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.home{
+    width: 1400px;
+    height: 800px;
+    margin: 0 auto;
+    /* background-color: blue; */
+}
+.home-left{
+    width: 350px;
+    height: 800px;
+    float: left;
+    background-color: rgb(0, 128, 90);
+}
+.home-left-ul{
+    width: 300px;
+    margin: 0 auto;
+    height: 500px;
+    /* background-color: red; */
+}
+.ul-li{
+    width: 300px;
+    height: 42px;
+    float: left;
+    margin-top: 20px;
+    /* background-color: grey; */
+}
+.ul-li-button{
+    width: 300px;
+    height: 2px;
+    background-color: white;
+    float: left;
+    margin-top: 10px;
+}
+.home-right{
+    width: 1050px;
+    height: 1000px;
+    float: left;
+    /* background-color: rgb(0, 128, 90); */
+}
+.home-right-top{
+    width: 208px;
+    height: 80px;
+    float: left;
+    background-color: rgb(130, 185, 185);
+    border:1px solid tomato;
+    text-align: center;
+    line-height: 80px;
+}
+.home-right-top2{
+    width: 173px;
+    height: 80px;
+    float: left;
+    background-color: rgb(130, 185, 185);
+    border:1px solid tomato;
+    text-align: center;
+    line-height: 80px;
+}
+ul{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+.home-right-center{
+    width: 210px;
+    height: 80px;
+    float: left;
+    /* background-color: red; */
+    text-align: center;
+    line-height: 80px;
+}
+.home-right-center1{
+    width: 175px;
+    height: 80px;
+    float: left;
+    /* background-color: red; */
+    text-align: center;
+    line-height: 80px;
+}
+.home-right-center2{
+    width: 175px;
+    height: 80px;
+    float: left;
+    /* background-color: red; */
+}
+.home-right-center3{
+    width: 210px;
+    height: 80px;
+    float: left;
+    /* background-color: red; */
+}
+.button1{
+    width: 80px;
+    height: 30px;
+    background-color: rgb(0, 128, 90);
+    float: left;
+    margin-top: 25px;
+    margin-left: 25px;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+}
+.button2{
+    width: 80px;
+    height: 30px;
+    background-color: red;
+    float: left;
+    margin-top: 25px;
+    margin-left: 0px;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+}
+.button3{
+    width: 75px;
+    height: 30px;
+    background-color: rgb(0, 128, 90);
+    float: left;
+    margin-top: 25px;
+    margin-left: 12px;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+}
+.button4{
+    width: 75px;
+    height: 30px;
+    background-color: red;
+    float: left;
+    margin-top: 25px;
+    margin-left: 0px;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+}
+/*文科*/
+.wendang{
+    margin-left: 25px;
+}
+.wendang li{
+    width: 200px;
+    height: 240px;
+    float: left;
+    margin-left: 40px;
+}
+.liebiao li{
+    height:50px;
+    line-height: 50px;
+    border:1px solid black;
+}
+.tu img{
+    float: left;
+    width: 30px;
+    height:30px;
+    margin-top:20px;
+    margin-left:600px;
+}
+.tu img:last-child{
+    margin-left: 20px;
+}
+
+/*晓勃*/
+.t-right{
+    width: 1050px;
+    height: 1000px;
+    float: left;
+}
+.R1{
+    width: 100%;
+    height: 100px;
+    float: left;
+}
+.search{
+    float: left;
+    width: 300px;
+    height: 40px;
+    margin-top: 25px;
+    margin-left: 35px;
+    border-radius: 10px;
+    border:solid 1px rgb(105, 96, 96);
+}
+.R2{
+    float: left;
+    width: 100%;
+    height: 900px;
+}
+.head{
+    width: 100%;
+    float: left;
+    height: 100px;
+    background-color: rgb(176, 162, 236);
+}
+.head th{
+    line-height: 100px;
+    text-align: center;
+    width:190px;
+    border-right:solid 1px  rgb(105, 96, 96);
+}
+.body{
+    float: left;
+    width: 100%;
+    height: 70px;
+    border:solid 1px  rgb(105, 96, 96);
+}
+.R2 td{
+    line-height: 70px;
+    text-align: center;
+    width:190px;
+    
+}
+.R2 span{
+    width: 70px;
+    height: 40px;
+    float: left;
+    line-height: 40px;
+    text-align: center;
+    
+}
+
+
+/*马锐*/
+.right-one{
+    width: 1050px;
+    height: 80px;
+    position:relative;
+    float: top;
+}
+.right-one1{
+    width: 850px;
+    height: 80px;
+    float:left;
+}
+.right-one2{
+    width: 200px;
+    height: 80px;
+    float:left;
+}
+.right-two{
+    width: 100%;
+    height: 80px;
+    float: top;
+}
+.right-three{
+    width:100%;
+    height:210px;
+    position: relative;
+}
+.big{
+    width:200px;
+    height:210px;
+    margin-left:60px;
+    float:left;
+    position: relative;
+}
+.right-four{
+    width:100%;
+    height:110px;
+}
+.right-five{
+    width:100%;
+    height: 350px;
+}
+.right-five1{
+    width:500px;
+    height: 100%;
+    float:left;
+    position: relative;
+    margin-left:50px;
+}
+.right-five2{
+    width:500px;
+    height: 100%;
+    float:left;
+    position:relative;
+}
