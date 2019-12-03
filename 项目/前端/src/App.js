@@ -1,5 +1,8 @@
 import React, { Component,useState,useEffect } from 'react';
 import {HashRouter as Router,Route,Link} from 'react-router-dom'
+import thunk from 'redux-thunk'
+import {createStore, compose, applyMiddleware} from 'redux'
+import {Provider} from 'react-redux'
 import { NavBar,Icon, List,WhiteSpace,Button ,Carousel,WingBlank,Tabs} from 'antd-mobile';
 import AppTab from './container/AppTab'
 import Home from './container/Home';
@@ -11,6 +14,13 @@ import Login from './container/Login'
 import Detail from './components/Detail'
 import Regiset from './container/Regiset'
 import Forget from './container/Forget'
+// import reducer from './reducer'
+// import CheckLogin from './components/CheckLogin';
+
+// const store = createStore(reducer, compose(
+//     applyMiddleware(thunk), //解决redux异步问题
+//     window.devToolsExtension ? window.devToolsExtension() : f => f // chrome控制台redux工具
+// ))
 export default class App extends Component {
     render() {
         return (
@@ -30,11 +40,12 @@ export default class App extends Component {
                         <Route path='/collect' component={Collect} />
                         <Route path='/work' component={Work} />
                         <Route path='/notice' component={Notice} />
-                        <Route path='/login' component={Login} />
+                        <Route exact path='/' component={Login} />
                         <Route path='/study' component={Study} />
                         <Route path='/topics' component={Detail}/>
                         <Route path='/regiset' component={Regiset} />
                         <Route path='/forget' component={Forget} />
+                        <Route path='/add' component={Add} />
                     </div>
                 </div>
             </Router>
@@ -128,7 +139,39 @@ function Study(){
 社区
  * 
  */
-
+//发表言论
+function Add(){
+    return (
+        <div>
+            <NavBar
+                style={{color:'#000',background:"blue"}}
+                leftContent={[
+                    <Link to='/talk'>
+                        <Icon key="0" type="left" style={{color:'white'}} />
+                    </Link>
+                ]}
+            >言论</NavBar>
+            <div id="talk">
+                <div style={{
+                    outline:'1px solid #eee',
+                    border: '1px solid #ccc',
+                    background: 'white',
+                    padding: '9px',
+                    height: '200px',
+                    width: '100%',
+                    fontSize: '12px'
+                }} contenteditable="true" name="content" id="ct"></div>
+                <button style={{
+                    color:'white',
+                    background:"blue",
+                    border:'1px solid blue',
+                    width:'80px',
+                    height:'30px'
+                }} id="sub">发表</button>
+            </div>
+        </div>
+    )
+}
 /*
     我的
  */
@@ -150,7 +193,7 @@ function Notice(){
 }
 //我的作业
 function Work(){
-    // let data=useFetch();
+    let data=useFetch('https://cnodejs.org/api/v1/topics');
     return (
         <div>
             <NavBar
@@ -161,12 +204,16 @@ function Work(){
                     </Link>
                 ]}
             >我的作业</NavBar>
+            {
+                data.map((item,index)=><p key={index}>{item.tab},{item.content}</p>)
+            }
         </div>
     )
 }
 //我的错题
 function Wrong(){
-    // let data=useFetch();
+    let data=useFetch('https://cnodejs.org/api/v1/topics');
+
     return (
         <div>
             <NavBar
@@ -177,12 +224,15 @@ function Wrong(){
                     </Link>
                 ]}
             >我的错题</NavBar>
+            {
+                data.map((item,index)=><p key={index}>{item.tab},{item.content}</p>)
+            }
         </div>
     )
 }
 //我的年级
 function Grade(){
-    // let data=useFetch();
+    let data=useFetch('http://127.0.0.1:8080/');
     return (
         <div>
             <NavBar
@@ -193,12 +243,23 @@ function Grade(){
                     </Link>
                 ]}
             >我的年级</NavBar>
+            {
+                data.map((item,index)=>
+                    <p key={index} style={{
+                        width:'100%',
+                        height:'50px',
+                        background:'#fff',
+                        textAlign:'center',
+                        lineHeight:'50px'
+                    }}>你所选的年级是{item.class}</p>
+                )
+            }
         </div>
     )
 }
 //我的收藏
 function Collect(){
-    let data=useFetch('http://129.211.62.80:8083/user');
+    let data=useFetch('https://cnodejs.org/api/v1/topics');
     return (
         <div>
             <NavBar
@@ -210,7 +271,7 @@ function Collect(){
                 ]}
             >我的收藏</NavBar>
             {
-                data.map((item)=><p key={item.id}>{item.username}</p>)
+                data.map((item,index)=><p key={index}>{item.tab},{item.content}</p>)
             }
         </div>
     )

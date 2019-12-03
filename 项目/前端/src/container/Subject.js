@@ -11,6 +11,19 @@ const tabs2 = [
 const Item = List.Item;
 const Brief = Item.Brief;
 export default class Subject extends Component {
+    constructor(){
+        super();
+        this.state={
+            data:[]
+        }
+    }
+    componentDidMount(){
+        fetch('https://cnodejs.org/api/v1/topics')
+            .then((res)=>res.json())
+            .then((res)=>{
+                this.setState({data:res.data});
+            })
+    }
     render() {
         return (
             <div>
@@ -57,7 +70,11 @@ export default class Subject extends Component {
                     </List>
                     <h3>二次函数与一元二次方程</h3>
                     </div>
-                    <div>2</div>
+                    <div>
+                    {
+                        this.state.data.map((item,index)=><p key={index}>{item.tab},{item.content}</p>)
+                    }
+                    </div>
                     <div>3</div>
                     <div>4</div>
                 </Tabs>

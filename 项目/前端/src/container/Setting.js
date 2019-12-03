@@ -51,7 +51,7 @@ export default class Setting extends Component {
                         </Item>
                     </Link>
                     <WhiteSpace />
-                    <Link to='/login'>
+                    <Link to='/'>
                         <Button type="warning">退出登录</Button>
                     </Link>
                 </List>

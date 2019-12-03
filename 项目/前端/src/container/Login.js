@@ -3,29 +3,74 @@ import{HashRouter as Router,Route,Link}from 'react-router-dom'
 import { NavBar, Icon,List,InputItem,WhiteSpace,Button, WingBlank} from 'antd-mobile';
 import AppTab from './AppTab'
 export default class Login extends Component {
+    constructor(){
+        super();
+        this.state={
+            data:[],
+            url:''
+        }
+    }
+    componentDidMount(){
+        fetch('http://localhost:8080/')
+            .then((res)=>res.json())
+            .then((res)=>{
+                this.setState({data:res.data});
+            })
+    }
+    handleChange=(e)=>{
+        this.setState({
+            username: e.target.value
+        })
+    }
+    handleChange1=(e)=>{
+        this.setState({
+            pws: e.target.value
+        })
+    }
+    check=()=>{
+        if(this.state.username=='123'&&this.state.pws=='234'){
+            this.setState({
+                url:'http://localhost:3000/#/home'
+            })
+        }
+    }
     render() {
         return (
             <div>
                 <div style={{width:'100%'}}>
                     <NavBar
                         style={{backgroundColor:'blue',color:'white'}}
-                    >登录</NavBar>
+        >登录</NavBar>
                 </div>
                 <div>
                     <p style={{width:'100%',fontSize:'20px'}}>欢迎来到</p>
                     <p style={{width:'100%',fontSize:'25px',marginLeft:'30px'}}>数学天地</p>
                 </div>
                 <div style={{width:'100%',backgroundColor:'white'}}>
-                    <List>
-                        <InputItem placeholder="手机号">
-                            <div style={{ backgroundImage: 'url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} />
-                        </InputItem>
-                        <InputItem placeholder="密码">
-                            <div style={{ backgroundImage: 'url(img/mima.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} />
-                        </InputItem>
-                    </List>
-                    <WhiteSpace />
-                    <Button style={{background:'blue',color:'white'}}>登录</Button>
+                <form action={this.state.url} method="GET" style={{
+                    width:'100%',
+                    height:'200px'
+                }}>
+                    <input type="text" autocomplete="off" placeholder="帐号" onChange={this.handleChange}  id="username" name="username" style={{
+                        width:'100%',
+                        height:'40px'
+                    }}/>
+                    <WhiteSpace/>
+                    <input type="password" autocomplete="off" placeholder="密码" onChange={this.handleChange1}  id="pwd"  name="pwd" style={{
+                        width:'100%',
+                        height:'40px'
+                    }} />
+                    <WhiteSpace/>
+                    <input type="submit" id="login" value="登录" style={{
+                        color:'white',
+                        background:'blue',
+                        border:'1px solid blue',
+                        height:'40px',
+                        width:'80%',
+                        borderRadius:'5px',
+                        marginLeft:'11%'
+                    }} onClick={this.check}></input>
+                </form>
                     <div style={{
                         width:"100%",
                         textAlign:'center'

@@ -44,6 +44,7 @@ export default class Home extends Component {
                 <Link to='/study'>
                     <Button style={{color:'white',background:'blue'}}>开始学习</Button>
                 </Link>
+                
                 <Footer/>
             </div>
         )
