@@ -2,11 +2,53 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import { NavBar, Icon,List,InputItem,WhiteSpace,Button, WingBlank} from 'antd-mobile';
 export default class Regiset extends Component {
-    constructor(){
-        super();
-        this.state={
-            data:[]
+    constructor(props){
+        super(props);
+        this.state = {
+            phoneNumber: '',
+            pws: '',
+            rpws:'',
+            validateCode:''
         }
+    }
+    handleChange=(e)=>{
+        this.setState({
+            phoneNumber: e.target.value
+        })
+    }
+    handleChange1=(e)=>{
+        this.setState({
+            pws: e.target.value
+        })
+    }
+    handleChange2=(e)=>{
+        this.setState({
+            rpws: e.target.value
+        })
+    }
+    handleChange3=(e)=>{
+        this.setState({
+            validateCode: e.target.value
+        })
+    }
+    register(phoneNumber,validateCode){
+        const regeisterValue={
+            "phoneNumber": phoneNumber,
+            "pws":this.state.pws,
+            "rpws":this.state.rpws,
+            "validateCode": validateCode
+        }
+        const url = " http://localhost:8080/regiset";
+        // try{
+        //     fetch(url,{
+        //         method:'POST',
+        //         headers:{
+        //             "Content-type":"application/json;charset=utf-8",
+        //         },
+        //         body:JSON.stringify(registerValue),
+        //     }).then(res=>res.json())
+        //       .then()
+        // }
     }
     render() {
         return (
@@ -15,90 +57,31 @@ export default class Regiset extends Component {
                 style={{backgroundColor:'blue',color:'white'}}
                 >注册</NavBar>
                 <div style={{width:'100%',marginTop:'30px',backgroundColor:'white'}}>
-                    <List>
-                        <InputItem placeholder="手机/邮箱">
-                            <div style={{ backgroundImage: 'url(https://zos.alipayobjects.com/rmsportal/DfkJHaJGgMghpXdqNaKF.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} />
-                        </InputItem>
-                        <InputItem placeholder="密码">
-                            <div style={{ backgroundImage: 'url(img/mima.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} />
-                        </InputItem>
-                        <InputItem placeholder="再次输入密码">
-                            <div style={{ backgroundImage: 'url(img/mima.png)', backgroundSize: 'cover', height: '22px', width: '22px' }} />
-                        </InputItem>
-                    </List>
-                    <WhiteSpace />
+                <form action={this.state.url} method="GET" style={{
+                    width:'100%',
+                    height:'200px'
+                }}>
+                    <input type="text" autocomplete="off" placeholder="手机号" onChange={this.handleChange}  id="phoneNumber" name="phoneNumber" style={{
+                        width:'100%',
+                        height:'40px'
+                    }}/>
+                    <WhiteSpace/>
+                    <input type="password" autocomplete="off" placeholder="密码" onChange={this.handleChange1}  id="pwd"  name="pwd" style={{
+                        width:'100%',
+                        height:'40px'
+                    }} />
+                    <WhiteSpace/>
+                    <input type="password" autocomplete="off" placeholder="再次输入密码" onChange={this.handleChange2}  id="pwd"  name="rpwd" style={{
+                        width:'100%',
+                        height:'40px'
+                    }} />
+                    <WhiteSpace/>
                     <Link to='/'>
                         <Button style={{background:'blue',color:'white'}}>去登陆</Button>
                     </Link>
+                </form>
                 </div>
             </div>
         )
     }
 }
-// import React, { Component } from 'react'
-// import {connect} from 'react-redux'
-// import {register} from '../redux/user.redux'
-// import {List,Radio,InputItem,WingBlank,WhiteSpace, Button} from 'antd-mobile'
-
-// export default class Regiset extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             username: '', //账号
-//             pwd: '', // 密码
-//             pwdConfirm: '', // 确认密码
-//             type: 'worker', // 用户类型 默认求职者
-//         }
-//     }
-//     render() {
-//         const RadioItem = Radio.RadioItem
-//         return (
-//             <div className="page-register">
-//                 <List>
-//                     <InputItem onChange={value => this.handleChange('username', value)}>lbj-账号</InputItem>
-//                     <InputItem onChange={value => this.handleChange('pwd', value)}>lbj-密码</InputItem>
-//                     <InputItem onChange={value => this.handleChange('pwdConfirm', value)}>lbj-确认</InputItem>
-//                 </List>
-//                 <WhiteSpace></WhiteSpace>
-//                 <List>
-//                     <RadioItem
-//                         onClick={() => this.handleChange('type', 'worker')}
-//                         checked={this.state.type === 'worker'}>牛人    </RadioItem>
-//                     <RadioItem
-//                         onClick={() => this.handleChange('type', 'boss')}
-//                         checked={this.state.type === 'boss'}>BOSS</RadioItem>
-//                 </List>
-//                 <WhiteSpace></WhiteSpace>
-//                 <WhiteSpace></WhiteSpace>
-//                 <WhiteSpace></WhiteSpace>
-//                 <WingBlank>
-//                     <Button type="primary">登录</Button>
-//                     <WhiteSpace></WhiteSpace>
-//                     <Button onClick={this.handleGoLogin.bind(this)} type="primary">已有账号，去登录</Button>
-//                 </WingBlank>
-//             </div>
-//         )
-//     }
-
-//     /*
-//     *     去登录
-//     * */
-//     handleGoLogin() {
-//         this.props.history.push('/login')
-//     }
-
-//     /*
-//     *     绑定表单值
-//     * */
-//     handleChange(key, val) {
-//         this.setState({
-//             [key]: val
-//         })
-//     }
-//     /*
-//      * 注册
-//      */
-//     handleRegister() {
-//         this.props.register(this.state)
-//     }
-// }
