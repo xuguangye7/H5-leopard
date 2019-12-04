@@ -14,6 +14,21 @@ export default class Yonghu extends Component {
                 this.setState({data:res.data});
             })
     }
+    // componentDidUpdate(){
+    //     fetch('http://129.211.62.80:8080/api')
+    //         .then((res)=>res.json(res))
+    //         .then((res)=>{
+    //             this.setState({data:res.data});
+    //         })
+    // }
+    delete=(idx)=>{
+        console.log(idx)
+        fetch('http://129.211.62.80:8080/api/delete?sphone='+idx.sphone)
+            .then(res=>res.json())
+            .then((res)=>{
+                console.log('ok')
+            })
+    }
     render() {
         return (
             <div style={{height:'800px',width:'1400px',margin:"0 auto"}}>
