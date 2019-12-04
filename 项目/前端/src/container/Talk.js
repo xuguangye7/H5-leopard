@@ -6,8 +6,14 @@ export default class Talk extends Component {
     constructor(props){
         super(props);
         this.state = {
-            data:[]   
+            data:[],
+            value:'关注' 
         }   
+    }
+    changeValue=()=>{
+        this.setState({
+            value:'已关注'
+        })
     }
     componentDidMount(){
         fetch('http://127.0.0.1:8080/')
@@ -52,7 +58,7 @@ export default class Talk extends Component {
                                 <br/><br/>
                                 <p>{item.contents}</p>
                                 <button style={{marginLeft:'30%',background:'white',border:'1px solid white'}}>点赞</button>
-                                <button style={{marginLeft:'10%',background:'red',border:'1px solid red'}}>关注</button>
+                    <button style={{marginLeft:'10%',background:'red',border:'1px solid red'}} onClick={this.changeValue}>{this.state.value}</button>
                                 <hr/>
                             </li>
                         )

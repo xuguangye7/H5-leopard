@@ -7,23 +7,30 @@ export default class Login extends Component {
         super();
         this.state={
             data:[],
-            url:''
+            url:'',
+            username:'',
+            pws:''
         }
     }
     componentDidMount(){
-        fetch('http://localhost:8080/')
-            .then((res)=>res.json())
+        fetch('http://129.211.62.80:8080/test')
+            .then((res)=>res.json(res))
             .then((res)=>{
                 this.setState({data:res.data});
             })
     }
     // componentDidUpdate(){
-    //     fetch('http://129.211.62.80:8080/user')
-    //         .then((res)=>res.json())
+    //     fetch('http://129.211.62.80:8080/test')
+    //         .then((res)=>res.json(res))
     //         .then((res)=>{
     //             this.setState({data:res.data});
     //         })
     // }
+    componentWillUnmount = () => {
+        this.setState = (state,callback)=>{
+        return;
+        };
+    }
     handleChange=(e)=>{
         this.setState({
             username: e.target.value
@@ -36,7 +43,7 @@ export default class Login extends Component {
     }
     check=()=>{
         this.state.data.map((item)=>{
-            if(this.state.username==item.tel&&this.state.pws==item.password){
+            if(this.state.username==item.sname&&this.state.pws==item.sphone){
                 this.setState({
                     url:'http://localhost:3000/#/home'
                 })
