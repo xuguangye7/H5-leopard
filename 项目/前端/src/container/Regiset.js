@@ -32,25 +32,33 @@ export default class Regiset extends Component {
         })
     }
     register(phoneNumber,validateCode){
-        const regeisterValue={
+        const registerValue={
             "phoneNumber": phoneNumber,
             "pws":this.state.pws,
             "rpws":this.state.rpws,
             "validateCode": validateCode
         }
-        const url = " http://localhost:8080/regiset";
-        // try{
-        //     fetch(url,{
-        //         method:'POST',
-        //         headers:{
-        //             "Content-type":"application/json;charset=utf-8",
-        //         },
-        //         body:JSON.stringify(registerValue),
-        //     }).then(res=>res.json())
-        //       .then()
-        // }
+        const url = " http://localhost:3000/regiset";
+        try{
+            fetch(url,{
+                method:'POST',
+                headers:{
+                    "Content-type":"application/json;charset=utf-8",
+                },
+                body:JSON.stringify(registerValue),
+            }).then(res=>res.json())
+              .then(data=>{
+                  console.log(data);
+                  if(data.success){
+                      alert('成功')
+                  }
+              });
+        }catch(e){
+            console.log(e.message);
+        }
     }
     render() {
+        const { phoneNumber, validateCode } = this.state;
         return (
             <div>
                 <NavBar
@@ -76,8 +84,13 @@ export default class Regiset extends Component {
                         height:'40px'
                     }} />
                     <WhiteSpace/>
+                    <input type="password" autocomplete="off" placeholder="验证码" onChange={this.handleChange3}  name="validateCode" style={{
+                        width:'100%',
+                        height:'40px'
+                    }} />
+                    <WhiteSpace/>
                     <Link to='/'>
-                        <Button style={{background:'blue',color:'white'}}>去登陆</Button>
+                        <Button style={{background:'blue',color:'white'}} onClick={this.register.bind(this, phoneNumber, validateCode)}>去登陆</Button>
                     </Link>
                 </form>
                 </div>
