@@ -1,0 +1,21 @@
+
+a{
+  text-decoration: none;
+}
+.wendang li{
+  width: 200px;
+  height: 240px;
+  float: left;
+  margin-left: 40px;
+}
+.liebiao li{
+  height:50px;
+  line-height: 50px;
+  border:1px solid black;
+}
+.liebiao li{
+  height:50px;
+  line-height: 50px;
+  border:1px solid black;
+}
+
