@@ -14,6 +14,7 @@ import Login from './container/Login'
 import Detail from './components/Detail'
 import Regiset from './container/Regiset'
 import Forget from './container/Forget'
+import Pp from './container/Pp'
 // import reducer from './reducer'
 // import CheckLogin from './components/CheckLogin';
 
@@ -151,24 +152,7 @@ function Add(){
                     </Link>
                 ]}
             >言论</NavBar>
-            <div id="talk">
-                <div style={{
-                    outline:'1px solid #eee',
-                    border: '1px solid #ccc',
-                    background: 'white',
-                    padding: '9px',
-                    height: '200px',
-                    width: '100%',
-                    fontSize: '12px'
-                }} contenteditable="true" name="content" id="ct"></div>
-                <button style={{
-                    color:'white',
-                    background:"blue",
-                    border:'1px solid blue',
-                    width:'80px',
-                    height:'30px'
-                }} id="sub">发表</button>
-            </div>
+            <Pp/>
         </div>
     )
 }

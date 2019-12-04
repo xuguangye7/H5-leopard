@@ -3,8 +3,8 @@ import{HashRouter as Router,Route,Link}from 'react-router-dom'
 import { NavBar, Icon,List,InputItem,WhiteSpace,Button, WingBlank} from 'antd-mobile';
 import AppTab from './AppTab'
 export default class Login extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
             data:[],
             url:'',
@@ -13,7 +13,7 @@ export default class Login extends Component {
         }
     }
     componentDidMount(){
-        fetch('http://129.211.62.80:8080/test')
+        fetch('http://129.211.62.80:8080/api')
             .then((res)=>res.json(res))
             .then((res)=>{
                 this.setState({data:res.data});
@@ -44,9 +44,7 @@ export default class Login extends Component {
     check=()=>{
         this.state.data.map((item)=>{
             if(this.state.username==item.sname&&this.state.pws==item.sphone){
-                this.setState({
-                    url:'http://localhost:3000/#/home'
-                })
+                this.props.history.push('/home')
             }
         })
     }
@@ -74,7 +72,7 @@ export default class Login extends Component {
                     left:'5%',
                     float:'left'
                     }}>
-                <form action={this.state.url} method="GET" style={{
+                <form method="GET" style={{
                     width:'80%',
                     height:'200px',
                     position:'relative',

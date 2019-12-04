@@ -69,6 +69,11 @@ export default class Regiset extends Component {
                 <div style={{width:'100%'}}>
                     <NavBar
                         style={{backgroundColor:'blue',color:'white'}}
+                        leftContent={[
+                            <Link to='/'>
+                                <Icon key="0" type="left" style={{color:'white'}} />
+                            </Link>
+                        ]}
                     >注册</NavBar>
                 </div>
                 <div style={{
