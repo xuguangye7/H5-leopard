@@ -4,6 +4,7 @@ import { NavBar, Icon,List,InputItem,WhiteSpace,Button, WingBlank} from 'antd-mo
 import AppTab from './AppTab'
 export default class Login extends Component {
     constructor(props){
+
         super(props);
         this.state={
             data:[],
