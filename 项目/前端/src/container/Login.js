@@ -13,18 +13,18 @@ export default class Login extends Component {
             pws:''
         }
     }
-    componentDidMount(){
-        fetch('http://129.211.62.80:8080/api')
-            .then((res)=>res.json(res))
-            .then((res)=>{
-                this.setState({data:res.data});
-            })
-    }
-    // componentDidUpdate(){
-    //     fetch('http://129.211.62.80:8080/test')
+    // componentDidMount(){
+    //     fetch('http://129.211.62.80:8080/api')
     //         .then((res)=>res.json(res))
     //         .then((res)=>{
-    //             this.setState({data:res.data});
+    //             this.setState({data:res.content});
+    //         })
+    // }
+    // componentDidUpdate(){
+    //     fetch('http://129.211.62.80:8080/api')
+    //         .then((res)=>res.json(res))
+    //         .then((res)=>{
+    //             this.setState({data:res.content});
     //         })
     // }
     componentWillUnmount = () => {
@@ -42,9 +42,27 @@ export default class Login extends Component {
             pws: e.target.value
         })
     }
-    check=()=>{
-        this.state.data.map((item)=>{
-            if(this.state.username==item.sname&&this.state.pws==item.sphone){
+    check(e){
+        // this.state.data.map((item)=>{
+        //     if(this.state.username==item.sname&&this.state.pws==item.spwd){
+        //         this.props.history.push('/home')
+        //     }
+        // })
+        e.preventDefault();
+        // 把表单用的最终数据从state中提取出来,传入请求
+        const post ={
+            user:this.state.username,
+            password:this.state.pws
+        }
+        fetch('http://129.211.62.80:8080/api',{
+            // post提交
+            method:"POST",
+            body:JSON.stringify(post)//把提交的内容转字符串
+        })
+        .then(res =>res.json())
+        .then(data =>{
+            console.log(data)
+            if(data.content){
                 this.props.history.push('/home')
             }
         })
@@ -73,7 +91,7 @@ export default class Login extends Component {
                     left:'5%',
                     float:'left'
                     }}>
-                <form method="GET" style={{
+                <form onSubmit={this.check.bind(this)} style={{
                     width:'80%',
                     height:'200px',
                     position:'relative',
@@ -108,7 +126,7 @@ export default class Login extends Component {
                         width:'80%',
                         borderRadius:'10px',
                         margin:'0 auto'
-                    }} onClick={this.check}></input>
+                    }} ></input>
                 </form>
                     <div style={{
                         width:"80%",

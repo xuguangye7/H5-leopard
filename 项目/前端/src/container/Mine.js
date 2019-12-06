@@ -10,6 +10,26 @@ const data = Array.from(new Array(10)).map((_val, i) => ({
     text: name[i],
 }));  
 export default class Mine extends Component {
+    constructor(){
+        super();
+        this.state={
+            data:[]
+        }
+    }
+    componentDidMount(){
+        fetch('http://129.211.62.80:8080/api')
+            .then((res)=>res.json(res))
+            .then((res)=>{
+                this.setState({data:res.content});
+            })
+    }
+    componentDidUpdate(){
+        fetch('http://129.211.62.80:8080/api')
+            .then((res)=>res.json(res))
+            .then((res)=>{
+                this.setState({data:res.content});
+            })
+    }
     render() {
         return (
             <div style={{height:'560px'}}>
@@ -32,10 +52,6 @@ export default class Mine extends Component {
                         <b>&nbsp;&nbsp;&nbsp;用户8301342393</b>
                     </span>
                 </div>
-                {/* <div style={{width:'100%',height:'100px',}}>
-                    <button style={{borderRadius:'80% 80%',width:'100px',height:'100px',marginLeft:'50px',backgroundColor:'green'}}>修改信息</button>
-                    <button style={{borderRadius:'80% 80%',width:'100px',height:'100px',marginLeft:'50px',backgroundColor:'yellow'}}>答题记录</button>
-                </div> */}
                 <List className="my-list" style={{}}>
                     
                     <Link to='/work'>
