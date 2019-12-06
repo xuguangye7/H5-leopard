@@ -8,13 +8,15 @@ import Wenjian from './container/Wenjian'
 import Yonghu from './container/Yonghu'
 import Xitong from './container/Xitong'
 import Hlogin from './container/Hlogin'
+import Hzhuce from './container/Hzhuce'
 export default class App extends Component {
   render() {
       return (
-          <Router>
+          <Router> 
               <div>
                   <div className="content">
-                      <Route exact path='/' component={Hlogin}/>>
+                      <Route exact path='/' component={Hlogin}/>
+                      <Route path='/zhuce' component={Hzhuce}/>
                       <Route path='/shouye' component={Shouye}/>
                       <Route path='/xitong' component={Xitong}/>
                       <Route path='/yonghu' component={Yonghu}/>

@@ -18,12 +18,31 @@
     border-radius: 20px;
     box-shadow: 3px 3px 5px black;
 }
+.login-box1{
+    position: absolute;
+    width: 33%;
+    height: 65%;
+    background-color:#fff;
+    float: left;
+    margin-left: 33%;
+    margin-top: 7%;
+    border: solid 1px white;
+    border-radius: 20px;
+    box-shadow: 3px 3px 5px black;
+}
 .login-img{
-    width: 70px;
+    width: 80px;
     height: 60px;
     float: left;
     margin-left: 200px;
     margin-top: 30px;
+}
+.login-img1{
+    width: 80px;
+    height: 60px;
+    float: left;
+    margin-left: 200px;
+    margin-top: 20px;
 }
 .input{
     float: left;
@@ -31,6 +50,13 @@
     height: 40%;
 }
 .shuru{
+    width: 80%;
+    height: 40%;
+    float: left;
+    margin-top: 35px;
+    margin-left: 50px;
+}
+.shuru1{
     width: 80%;
     height: 40%;
     float: left;

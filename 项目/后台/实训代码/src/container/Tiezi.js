@@ -12,7 +12,22 @@ export default class tiezi extends Component {
         fetch('http://129.211.62.80:8080/essay')
             .then((res)=>res.json(res))
             .then((res)=>{
-                this.setState({data:res.data});
+                this.setState({data:res.content});
+            })
+    }
+    componentDidUpdate(){
+        fetch('http://129.211.62.80:8080/essay')
+            .then((res)=>res.json(res))
+            .then((res)=>{
+                this.setState({data:res.content});
+            })
+    }
+    delete=(idx)=>{
+        console.log(idx)
+        fetch('http://129.211.62.80:8080/essay/delete?sno='+idx.sno)
+            .then(res=>res.json())
+            .then((res)=>{
+                console.log('ok')
             })
     }
     render() {
@@ -144,7 +159,7 @@ export default class tiezi extends Component {
                                 {
                                     this.state.data.map((item,index)=><tr class="body">
                                     <td>{item.sno}</td>
-                                    <td>{item.sname}</td>
+                                    <td>{item.smane}</td>
                                     <td style={{width:'265px'}}>{item.scontent}</td>
                                     <td>{item.stime}</td>
                                     <td><button
@@ -164,6 +179,7 @@ export default class tiezi extends Component {
                                         color:'white',
                                         float: 'left',
                                         marginTop: '10px'}}
+                                        onClick={()=>this.delete(item)}
                                         >删除</button></td>
                                 </tr>)
                                 }

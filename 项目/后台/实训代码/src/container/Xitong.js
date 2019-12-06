@@ -11,7 +11,22 @@ export default class Xitong extends Component {
         fetch('http://129.211.62.80:8080/login')
             .then((res)=>res.json(res))
             .then((res)=>{
-                this.setState({data:res.data});
+                this.setState({data:res.content});
+            })
+    }
+    componentDidUpdate(){
+        fetch('http://129.211.62.80:8080/login')
+            .then((res)=>res.json(res))
+            .then((res)=>{
+                this.setState({data:res.content});
+            })
+    }
+    delete=(idx)=>{
+        console.log(idx)
+        fetch('http://129.211.62.80:8080/login/delete?sphone='+idx.sphone)
+            .then(res=>res.json())
+            .then((res)=>{
+                console.log('ok')
             })
     }
     render() {
@@ -147,7 +162,7 @@ export default class Xitong extends Component {
                         backgroundColor:"rgb(130,185,185)",
                         lineHeight:'80px',
                         textAlign:"center",
-                        border:"1px solid tomato"}}>年级</div>
+                        border:"1px solid tomato"}}>性别</div>
                     <div style={{
                         width:"173px",
                         height:"80px",
@@ -165,7 +180,7 @@ export default class Xitong extends Component {
                                 float:"left",
                                 textAlign:"center",
                                 lineHeight:"80px"
-                            }}>{item.snicheng}</div>
+                            }}>{item.nicheng}</div>
                             <div style={{
                                 width:"175px",
                                 height:"80px",
@@ -214,7 +229,9 @@ export default class Xitong extends Component {
                                     marginLeft: "0px",
                                     textAlign: "center",
                                     lineHeight: "30px",
-                                    color: "#fff"}}>删除</div>
+                                    color: "#fff"}}
+                                    onClick={()=>this.delete(item)}
+                                    >删除</div>
                             </div>
                         </li>)
                         }

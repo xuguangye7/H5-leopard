@@ -11,16 +11,16 @@ export default class Yonghu extends Component {
         fetch('http://129.211.62.80:8080/api')
             .then((res)=>res.json(res))
             .then((res)=>{
-                this.setState({data:res.data});
+                this.setState({data:res.content});
             })
     }
-    // componentDidUpdate(){
-    //     fetch('http://129.211.62.80:8080/api')
-    //         .then((res)=>res.json(res))
-    //         .then((res)=>{
-    //             this.setState({data:res.data});
-    //         })
-    // }
+    componentDidUpdate(){
+        fetch('http://129.211.62.80:8080/api')
+            .then((res)=>res.json(res))
+            .then((res)=>{
+                this.setState({data:res.content});
+            })
+    }
     delete=(idx)=>{
         console.log(idx)
         fetch('http://129.211.62.80:8080/api/delete?sphone='+idx.sphone)
