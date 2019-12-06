@@ -1,133 +1,168 @@
 import React, { Component } from 'react'
-import { NavBar,Icon, List,WhiteSpace,Button ,Carousel, SearchBar } from 'antd-mobile';
-import {HashRouter as Router,Route,Link} from 'react-router-dom'
-import Footer from '../components/Footer'
+import { NavBar,Icon, List,WhiteSpace,Button ,SearchBar, WingBlank,Grid,Tabs,Badge } from 'antd-mobile';
+import './Home.css'
+const arr=['资料','题库','大学','更多'];
+const data = Array.from(new Array(4)).map((_val, i) => ({
+    icon:'img/grid'+(i+1)+'.png',
+     text: arr[i],
+  }));
+  const tabs = [
+    { title: <Badge text={'3'}>每日热点</Badge> },
+    { title: <Badge dot>今日任务</Badge> },
+  ];
 export default class Home extends Component {
-    state = {
-        data: ['1', '2', '3'],
-        imgHeight: '176',
-      }
     render() {
         return (
             <div style={{
-              backgroundColor:''
+                width:'100%',
+                height:'100%',
+                zIndex:'10',
+                //backgroundColor:'white'
+
             }}>
                 <NavBar
-                style={{backgroundColor:'rgb(8, 217, 245)',color:'white',textShadow:'2px 2px 2px red',textAlign:'center'}}
-                ><h3>数学天地</h3></NavBar>
-                <SearchBar 
-                  placeholder="圆锥曲线"
-                  ref={ref => this.manualFocusInst = ref}
-                  style={{
-                    backgroundColor:'rgb(8, 217, 245)',
+                style={{
+                    backgroundColor:'#099ff5',
+                    color:'white',
+                    height:'60px',
 
-                  }}
-                />
-                <WhiteSpace/>
-                <div style={{width:'100%',
-                     background:'url(img/sx.jpg) center center /  100% 180px no-repeat',
-                    backgroundColor:'blue',
-                    height:'180px',
-                    textAlign:'center',
-                    //lineHeight:'180px',
-                    color:'#fff',
-                    fontSize:'20px',
-                    textShadow:'3px 3px 3px red'
-                }}>
-                    <p style={{
-                      fontSize:'30px',
-                      margin:'0',
-                      marginTop:'5%',
-                      marginLeft:'2%',
-                      float:'left'
-                    }}
-                    
-                    >咸鱼也有理想</p>
-                    <br/>
-                    <p style={{
-                      fontSize:'30px',
-                       margin:'0',
-                       marginTop:'10%',
-                      marginRight:'3%',
-                      float:'right'
-                    }}>我们帮你学好数学</p>
-                </div>
-                <WhiteSpace/>
-                {/* <Carousel
-                    autoplay={true}
-                    infinite
-                    beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-                    afterChange={index => console.log('slide to', index)}
-                    >
-                    {[0,1].map(val => (
-                        <a
-                        key={val}
-                        style={{ display: 'inline-block', width: '100%',height:'200px' }}
-                        >
-                        <img
-                            src={`img/shuxue${val}.jpg`}
-                            alt=""
-                            style={{ width: '100%', verticalAlign: 'top' }}
-                        />
-                        </a>
-                    ))}
-                </Carousel> */}
-                <Carousel style={{padding: '16px',overflow: 'hidden',background:'rgb(8, 217, 245)'}}
-          frameOverflow="visible"
-          cellSpacing={10}
-          slideWidth={0.8}
-          autoplay
-          infinite
-          beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-          afterChange={index => this.setState({ slideIndex: index })}
-        >
-          {this.state.data.map((val, index) => (
-            <a
-              key={val}
-            //   href=""
-              style={{
-                display: 'block',
-                position: 'relative',
-                top: this.state.slideIndex === index ? -10 : 0,
-                height: this.state.imgHeight,
-                boxShadow: '2px 1px 1px rgba(0, 0, 0, 0.2)',
-              }}
-            >
-              <img
-                src={`img/shuxue${val}.jpg`}
-                alt=""
-                style={{ width: '100%', verticalAlign: 'top',height:'176' }}
-                onLoad={() => {
-                  // fire window resize event to change height
-                  window.dispatchEvent(new Event('resize'));
-                  this.setState({ imgHeight: '176' });
                 }}
-              />
-            </a>
-          ))}
-        </Carousel>
+                >数学天地
+                </NavBar>
                 <WhiteSpace/>
-                <Link to='/study'>
-                    <Button style={{color:'white',background:'blue'}}>开始学习</Button>
-                </Link>
+                <SearchBar placeholder="输入查询知识" ref={ref => this.autoFocusInst = ref} style={{
+                    height:'55px',
+                    width:'90%',
+                    margin:'0 auto',
+                    backgroundColor:'white',
+                    border:'solid 2px #099ff5',
+                    borderRadius:'10px',
+                }}/>
                 <WhiteSpace/>
                 <div style={{
-                  width:'100%',
-                  height:'350px'
+                    position:'relative',
+                    width:'90%',
+                    height:'30%',
+                    margin:'0 auto',
+                    borderRadius:'5%',
                 }}>
-                  <p style={{
-                    width:'100%',
-                    textAlign:'center',
-                    fontSize:'20px',
-                    margin:''
-                  }}>特级教师在线教学</p>
-                  <img src='img/timg.jpg'style={{
-                    width:'100%'
-                  }}/>
+                   <img src="img/lantian.jpg"
+                   style={{
+                       position:'absolute',
+                       top:'0',
+                       left:'0',
+                       width:'100%',
+                       height:'100%',
+                       borderRadius:'5%',
+                       zIndex:'-1',
+                       opacity:'0.7'
+                   }}/>
+                   <p style={{
+                       fontSize:'25px',
+                       color:'black',
+                       float:'left',
+                       textShadow:'2px 2px gray',
+                       marginLeft:'18%',
+                       marginTop:'12%'
+                   }}>高考倒计时---</p>
+                   <p style={{
+                       fontSize:'30px',
+                       color:'black',
+                       float:'left',
+                       textShadow:'2px 2px gray',
+                       marginLeft:'5%',
+                       marginTop:'10%'
+                       
+                   }}>4天</p>
+                   <p style={{
+                       fontSize:'20px',
+                       color:'#099ff5',
+                       float:'left',
+                       textShadow:'2px 2px black',
+                       marginLeft:'20%',
+                       marginTop:'10%'
+                   }}>别怕，我们帮你学会数学</p>
                 </div>
-                <Footer/>
+                <WhiteSpace/>
+                <div style={{
+                    width:'90%',
+                    margin:'0 auto',
+                }}>
+                <Grid data={data} hasLine={false} columnNum={2}
+                        renderItem={dataItem => (
+                            <div>
+                            <img src={dataItem.icon} style={{ width: '50%', height: '50%' }} alt="" />
+                            <div style={{fontSize: '18px',color:'#099ff5'}}>
+                                    <span>{dataItem.text}</span>
+                                </div>
+                            </div>
+                            
+                        )}
+                    />
+                </div>
+                <WhiteSpace/>
+                <div style={{
+                    width:'90%',
+                    margin:'0 auto',
+                    height:'50%'
+                }}>
+                    <Tabs tabs={tabs}
+                        initialPage={0}
+                        onChange={(tab, index) => { console.log('onChange', index, tab); }}
+                        onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
+                        >
+                        <div style={{ display: 'flex',  justifyContent: 'center', height: '500px', backgroundColor: '#fff' }}>
+                            <div style={{
+                                width:'100%',
+                                height:'150px',
+                            }}>
+                                <div style={{
+                                    width:'100%',
+                                    float:'flet'
+                                }}>
+                                    <img src="img/weixin.png" style={{
+                                        width:'50px',
+                                        height:'50px',
+                                        float:'left'
+                                    }}/>
+                                    <div style={{
+                                        float:'left'
+                                        }}>
+                                        离高考还有十六天，现在我终于明白了那些曾经毫不在意的话
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style={{
+                                width:'100%',
+                                height:'150px',
+                            }}>
+                                <div style={{
+                                    width:'100%',
+                                    float:'flet'
+                                }}>
+                                    <img src="img/weixin.png" style={{
+                                        width:'50px',
+                                        height:'50px',
+                                        float:'left'
+                                    }}/>
+                                    <div style={{
+                                        float:'left'
+                                        }}>
+                                        离高考还有十六天，现在我终于明白了那些曾经毫不在意的话
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '', backgroundColor: '#fff' }}>
+                            Content of third tab
+                        </div>
+                        </Tabs>
+                </div>
             </div>
         )
     }
 }
-
