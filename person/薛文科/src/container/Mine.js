@@ -12,9 +12,9 @@ const data = Array.from(new Array(10)).map((_val, i) => ({
 export default class Mine extends Component {
     render() {
         return (
-            <div>
+            <div style={{height:'560px',background:'#fff'}}>
                 <NavBar
-                style={{backgroundColor:'blue',color:'white'}}
+                style={{backgroundColor:'#099ff5',color:'white'}}
                 rightContent={[
                     <Link to='/s'>
                         <img src="img/icon-test.png" style={{width:'25%',marginLeft:'70px'}}/>
@@ -26,7 +26,17 @@ export default class Mine extends Component {
                     </Link>
                 ]}
                 >我的</NavBar>
-                <List className="my-list">
+                 {/* <WhiteSpace/> */}
+                {/* <WingBlank> */}
+                    <div style={{width:'100%',height:'80px',backgroundColor:'rgb(8, 217, 245)'}}>
+                        <span style={{fontSize:'18px'}}>
+                            <img src={`img/头像 男孩.png`} style={{marginLeft:'20px',marginTop:'13px'}}></img>
+                            <b>&nbsp;&nbsp;&nbsp;用户8301342393</b>
+                        </span>
+                    </div>
+                {/* </WingBlank> */}
+                <List className="my-list" style={{}}>
+                    
                     <Link to='/work'>
                         <Item 
                         arrow="horizontal" 
@@ -37,6 +47,7 @@ export default class Mine extends Component {
                         我的作业
                         </Item>
                     </Link>
+                    
                     <Link to='/grade'>
                         <Item
                         arrow="horizontal"
@@ -48,6 +59,7 @@ export default class Mine extends Component {
                         我的年级
                         </Item>
                     </Link>
+                    
                     <Link to='/collect'>
                         <Item
                         arrow="horizontal"
@@ -68,6 +80,28 @@ export default class Mine extends Component {
                         platform="android"
                         >
                         我的错题
+                        </Item>
+                    </Link>
+                    <Link to='#'>
+                        <Item
+                        arrow="horizontal"
+                        thumb="img/夜间模式.png"
+                        multipleLine
+                        onClick={() => {}}
+                        platform="android"
+                        >
+                        夜间模式
+                        </Item>
+                    </Link>
+                    <Link to='#'>
+                        <Item
+                        arrow="horizontal"
+                        thumb="img/邀请.png"
+                        multipleLine
+                        onClick={() => {}}
+                        platform="android"
+                        >
+                        邀请好友
                         </Item>
                     </Link>
                     <WhiteSpace />

@@ -9,7 +9,7 @@ export default class Setting extends Component {
         return (
             <div>
                 <NavBar
-                style={{backgroundColor:'blue',color:'white'}}
+                style={{backgroundColor:'#099ff5',color:'white'}}
                 leftContent={[
                     <Link to='/mine'>
                         <Icon key="0" type="left" style={{color:'white'}}/>

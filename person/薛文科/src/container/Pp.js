@@ -14,13 +14,35 @@ export default class HyperTextInput extends Component {
     render() {
         return (
             <Fragment>
-                <div id="content" style={{
-                    height:'30px',
+                {/* <div style={{
+                    position:'fixed',
+                    top:'0',
+                    left:'0',
                     width:'100%',
-
+                    height:'100%',
+                    zIndex:'-10',
+                    backgroundColor:'',
+                    background:'url(img/add.jpg) center center /  100% 100%',
+                }}>
+                </div> */}
+                <div id="content" style={{
+                    position:'absolute',
+                    top:'8%',
+                    left:'2.5%',
+                    outline:'1px solid #eee',
+                    border: '1px solid #ccc',
+                    background: 'white',
+                    padding: '9px',
+                    height: '300px',
+                    width: '90%',
+                    margin:'0 auto',
+                    fontSize: '18px',
+                    boxShadow:'5px 5px gray'
                 }}>
 
                 </div>
+                
+
                 <OutterContainer>
                     <InputOutter>
                             {/*用可编辑的div代替textarea:*/}
@@ -30,12 +52,12 @@ export default class HyperTextInput extends Component {
                                 style={{ height: '20px',width:'70%' }}
                                 onKeyUp={this.divInput.bind(this)}
                             />
-                        <BtnContainer>
-                            <div style={{display:"flex",justifyContent:"space-around",alignItems:"center",width:"100%"}}>
+                        <BtnContainer style={{marginRight:'17px',textAlign:'center'}}>
+                            <div style={{display:"flex",marginBottom:'5px',justifyContent:"space-around",alignItems:"center"}}>
                             <Icon
                                 onClick={this.showEmojiTab.bind(this)}
                                 type="smile"
-                                style={{ color: this.state.showEmojiTab ? '#1890FF' : '#555', fontSize: "1.2em",outline:"none",display:"flex",justifyContent:"center",alignItems:"center" }}
+                                style={{ color: this.state.showEmojiTab ? '#1890FF' : '#555',marginRight:'7px', fontSize: "1.2em",outline:"none",display:"flex",justifyContent:"center",alignItems:"center" }}
                             />
                             {
                                 this.state.hyperText?

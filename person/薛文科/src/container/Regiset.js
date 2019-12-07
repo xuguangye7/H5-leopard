@@ -7,7 +7,7 @@ export default class Regiset extends Component {
         this.state = {
             phoneNumber: '',
             pws: '',
-            class:'',
+            nicheng:'',
             validateCode:''
         }
     }
@@ -23,7 +23,7 @@ export default class Regiset extends Component {
     }
     handleChange2=(e)=>{
         this.setState({
-            class: e.target.value
+            nicheng: e.target.value
         })
     }
     handleChange3=(e)=>{
@@ -31,34 +31,56 @@ export default class Regiset extends Component {
             validateCode: e.target.value
         })
     }
-    register(phoneNumber,validateCode){
-        const registerValue={
-            "phoneNumber": phoneNumber,
-            "pws":this.state.pws,
-            "rpws":this.state.rpws,
-            "validateCode": validateCode
+    displayResult=(e)=>{
+        var  re = /^1\d{10}$/
+        if(e.target.value){
+            if (re.test(e.target.value)) {
+                this.setState({
+                    phoneNumber:e.target.value
+                })
+            }
+            else{
+                alert('输入手机不合法')
+            } 
         }
-        const url = " http://localhost:3000/regiset";
-        try{
-            fetch(url,{
-                method:'POST',
-                headers:{
-                    "Content-type":"application/json;charset=utf-8",
-                },
-                body:JSON.stringify(registerValue),
-            }).then(res=>res.json())
-              .then(data=>{
-                  console.log(data);
-                  if(data.success){
-                      alert('成功')
-                  }
-              });
-        }catch(e){
-            console.log(e.message);
+        else{
+            alert('手机号不能为空')
         }
+    
+    }
+    onSubmit=(e)=> {
+        // 阻止事件传递
+        console.log(this.state.phone);
+       e.preventDefault();
+        // 把表单用的最终数据从state中提取出来,传入请求
+        const post ={
+            nicheng:this.state.nicheng,
+            sname:'用户'+this.state.phoneNumber,
+            qq:this.state.phoneNumber.slice(1),
+            phoneNumber:this.state.phoneNumber,
+            calss:'7',
+            pws:this.state.pws,
+
+        }
+        fetch('http://129.211.62.80:8080/register',{
+            // post提交
+            method:"POST",
+            body:JSON.stringify(post)//把提交的内容转字符串
+        })
+        .then(res =>res.json())
+        .then(data =>{
+            console.log(data)
+            if(data.content){
+                this.props.history.push('/')
+                alert('注册成功')
+            }
+            else{
+                alert('该手机号已经被占用')
+            }
+        })
+
     }
     render() {
-        const { phoneNumber, validateCode } = this.state;
         return (
             <div style={{
                 width:'100%',
@@ -87,31 +109,31 @@ export default class Regiset extends Component {
                     left:'5%',
                     float:'left'
                     }}>
-                <form method="GET" style={{
+                <form onSubmit={this.onSubmit.bind(this)} style={{
                     width:'80%',
                     height:'200px',
                     position:'relative',
                     margin:'0 auto'
                 }}>
+                    <input type="password" autocomplete="off" placeholder="昵称" onChange={this.handleChange2}  id="pwd"  name="pwd" style={{
+                        width:'100%',
+                        height:'40px',
+                        position:'absolute',
+                        top:'10%',
+                        border:'solid 1px black',
+                        borderRadius:'10px'
+                    }} />
+                    <WhiteSpace/>
                     <input type="text" autocomplete="off" placeholder="手机号" onChange={this.handleChange}  id="username" name="username" style={{
                         width:'100%',
                         position:'absolute',
-                        top:'10%',
+                        top:'35%',
                         height:'40px',
                         border:'solid 1px black',
                         borderRadius:'10px'
                     }}/>
                     <WhiteSpace/>
-                    <input type="password" autocomplete="off" placeholder="密码" onChange={this.handleChange2}  id="pwd"  name="pwd" style={{
-                        width:'100%',
-                        height:'40px',
-                        position:'absolute',
-                        top:'35%',
-                        border:'solid 1px black',
-                        borderRadius:'10px'
-                    }} />
-                    <WhiteSpace/>
-                    <input type="password" autocomplete="off" placeholder="年级" onChange={this.handleChange3}  id="pwd"  name="pwd" style={{
+                    <input type="password" autocomplete="off" placeholder="密码" onChange={this.handleChange1}  id="pwd"  name="pwd" style={{
                         width:'100%',
                         height:'40px',
                         position:'absolute',
@@ -142,13 +164,13 @@ export default class Regiset extends Component {
                         top:'120%',
                         left:'10%',
                         color:'white',
-                        background:'blue',
-                        border:'1px solid blue',
+                        background:'#099ff5',
+                        border:'1px solid #099ff5',
                         height:'40px',
                         width:'80%',
                         borderRadius:'10px',
                         margin:'0 auto'
-                    }} onClick={this.check}></input>
+                    }}></input>
                 </form>
                 </div>
             </div>

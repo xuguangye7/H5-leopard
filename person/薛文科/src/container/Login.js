@@ -3,8 +3,9 @@ import{HashRouter as Router,Route,Link}from 'react-router-dom'
 import { NavBar, Icon,List,InputItem,WhiteSpace,Button, WingBlank} from 'antd-mobile';
 import AppTab from './AppTab'
 export default class Login extends Component {
-    constructor(){
-        super();
+    constructor(props){
+
+        super(props);
         this.state={
             data:[],
             url:'',
@@ -12,20 +13,6 @@ export default class Login extends Component {
             pws:''
         }
     }
-    componentDidMount(){
-        fetch('http://129.211.62.80:8080/test')
-            .then((res)=>res.json(res))
-            .then((res)=>{
-                this.setState({data:res.data});
-            })
-    }
-    // componentDidUpdate(){
-    //     fetch('http://129.211.62.80:8080/test')
-    //         .then((res)=>res.json(res))
-    //         .then((res)=>{
-    //             this.setState({data:res.data});
-    //         })
-    // }
     componentWillUnmount = () => {
         this.setState = (state,callback)=>{
         return;
@@ -41,12 +28,28 @@ export default class Login extends Component {
             pws: e.target.value
         })
     }
-    check=()=>{
-        this.state.data.map((item)=>{
-            if(this.state.username==item.sname&&this.state.pws==item.sphone){
-                this.setState({
-                    url:'http://localhost:3000/#/home'
-                })
+    check(e){
+        // this.state.data.map((item)=>{
+        //     if(this.state.username==item.sname&&this.state.pws==item.spwd){
+        //         this.props.history.push('/home')
+        //     }
+        // })
+        e.preventDefault();
+        // 把表单用的最终数据从state中提取出来,传入请求
+        const post ={
+            user:this.state.username,
+            password:this.state.pws
+        }
+        fetch('http://129.211.62.80:8080/api',{
+            // post提交
+            method:"POST",
+            body:JSON.stringify(post)//把提交的内容转字符串
+        })
+        .then(res =>res.json())
+        .then(data =>{
+            console.log(data)
+            if(data.content){
+                this.props.history.push('/home')
             }
         })
     }
@@ -60,7 +63,7 @@ export default class Login extends Component {
             }}>
                 <div style={{width:'100%'}}>
                     <NavBar
-                        style={{backgroundColor:'blue',color:'white'}}
+                        style={{backgroundColor:'#099ff5',color:'white'}}
                     >登录</NavBar>
                 </div>
                 <div style={{
@@ -74,7 +77,7 @@ export default class Login extends Component {
                     left:'5%',
                     float:'left'
                     }}>
-                <form action={this.state.url} method="GET" style={{
+                <form onSubmit={this.check.bind(this)} style={{
                     width:'80%',
                     height:'200px',
                     position:'relative',
@@ -103,13 +106,13 @@ export default class Login extends Component {
                         top:'100%',
                         left:'10%',
                         color:'white',
-                        background:'blue',
-                        border:'1px solid blue',
+                        background:'#099ff5',
+                        border:'1px solid #099ff5',
                         height:'40px',
                         width:'80%',
                         borderRadius:'10px',
                         margin:'0 auto'
-                    }} onClick={this.check}></input>
+                    }} ></input>
                 </form>
                     <div style={{
                         width:"80%",
@@ -150,7 +153,7 @@ export default class Login extends Component {
                     top:'59%',
                     left:'5%',
                     fontSize:'18px',
-                    color:'white',
+                    color:'#3fcccb',
                     textAlign:'center'
                 }}>
                     你还可以用以下方式登录

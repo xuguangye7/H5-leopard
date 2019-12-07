@@ -1,52 +1,189 @@
 import React, { Component } from 'react'
-import { NavBar,Icon, List,WhiteSpace,Button ,Carousel, WingBlank } from 'antd-mobile';
+import { NavBar,Icon, List,WhiteSpace,SearchBar, Tabs,Badge, WingBlank } from 'antd-mobile';
 import {HashRouter as Router,Route,Link} from 'react-router-dom'
 import Footer from '../components/Footer'
+const tabs = [
+    { title: <Badge>推荐</Badge> },
+    { title: <Badge>今日任务</Badge> },
+];
 export default class Home extends Component {
     render() {
         return (
-            <div>
+            <div style={{
+              backgroundColor:''
+            }}>
                 <NavBar
-                style={{backgroundColor:'blue',color:'white'}}
-                >数学天地</NavBar>
-                <WhiteSpace/>
+                style={{backgroundColor:'#099ff5',color:'white',textAlign:'center'}}
+                ><h3>数学天地</h3></NavBar>
+                <SearchBar 
+                  placeholder="在这里搜索知识点"
+                  ref={ref => this.manualFocusInst = ref}
+                  style={{
+                    backgroundColor:'rgb(8, 217, 245)',
+                  }}
+                />
                 <div style={{width:'100%',
-                    background:'url(img/sx.jpg) center center /  100% 180px no-repeat',
-                    height:'180px',
-                    textAlign:'center',
-                    lineHeight:'180px',
-                    color:'blue',
-                    fontSize:'30px'
+                    position:'relative',
+                    height:'30%',
+                    margin:'0 auto',
                 }}>
-                    欢迎来到数学圣地
+                    <img src='img/lantian.jpg' style={{
+                        width:'100%',
+                        borderRadius:'0 0 5% 5%',
+                        zIndex:'-1',
+                        opacity:'0.7',
+                        top:'0',
+                    }} />
                 </div>
                 <WhiteSpace/>
-                <Carousel
-                    autoplay={true}
-                    infinite
-                    beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-                    afterChange={index => console.log('slide to', index)}
-                    >
-                    {[0,1].map(val => (
-                        <a
-                        key={val}
-                        style={{ display: 'inline-block', width: '100%',height:'200px' }}
-                        >
-                        <img
-                            src={`img/shuxue${val}.jpg`}
-                            alt=""
-                            style={{ width: '100%', verticalAlign: 'top' }}
-                        />
-                        </a>
-                    ))}
-                </Carousel>
+                <WingBlank>
+                    <div style={{width:'100%',height:'100px',borderRadius:'10px',background:'#fff'}}>
+                        <Link to='ziliao'>
+                            <div style={{width:'33%',float:'left',height:'100px',textAlign:'center'}}>
+                                <img src='img/circle5.png' style={{width:'40%',marginTop:'15%'}}/>
+                                <br/>
+                                <span style={{
+                                    fontSize: '13px',color:'#3fcccb'
+                                }}>资料</span>
+                            </div>
+                        </Link>
+                        <Link to='zhenti'>
+                            <div style={{width:'33%',float:'left',height:'100px',textAlign:'center'}}>
+                                <img src='img/circle1.png' style={{width:'40%',marginTop:'15%'}}/>
+                                <br/>
+                                <span style={{
+                                    fontSize: '13px',color:'#3fcccb'
+                                }}>真题</span>
+                            </div>
+                        </Link>
+                        <Link to='fangfa'>
+                            <div style={{width:'33%',float:'left',height:'100px',textAlign:'center'}}>
+                                <img src='img/circle4.png' style={{width:'40%',marginTop:'15%'}}/>
+                                <br/>
+                                <span style={{
+                                    fontSize: '13px',color:'#3fcccb'
+                                }}>方法</span>
+                            </div>
+                        </Link>
+                    </div>
+                </WingBlank>
+                <WingBlank>
+                    <div style={{width:'100%',height:'100px',borderRadius:'10px',background:'#fff'}}>
+                        <Link to='gongshi'>
+                            <div style={{width:'33%',float:'left',height:'100px',textAlign:'center'}}>
+                                <img src='img/circle6.png' style={{width:'40%',marginTop:'15%'}}/>
+                                <br/>
+                                <span style={{
+                                    fontSize: '13px',color:'#3fcccb'
+                                }}>记公式</span>
+                            </div>
+                        </Link>
+                        <Link to='book'>
+                            <div style={{width:'33%',float:'left',height:'100px',textAlign:'center'}}>
+                                <img src='img/circle7.png' style={{width:'40%',marginTop:'15%'}}/>
+                                <br/>
+                                <span style={{
+                                    fontSize: '13px',color:'#3fcccb'
+                                }}>参考书</span>
+                            </div>
+                        </Link>
+                        <Link to='zhengce'>
+                            <div style={{width:'33%',float:'left',height:'100px',textAlign:'center'}}>
+                                <img src='img/circle9.png' style={{width:'40%',marginTop:'15%'}}/>
+                                <br/>
+                                <span style={{
+                                    fontSize: '13px',color:'#3fcccb'
+                                }}>政策</span>
+                            </div>
+                        </Link>
+                    </div>
+                </WingBlank>
                 <WhiteSpace/>
-                <Link to='/study'>
-                    <Button style={{color:'white',background:'blue'}}>开始学习</Button>
-                </Link>
-                
+                <div style={{
+                    width:'100%',
+                }}>
+                    <NavBar
+                    style={{backgroundColor:'rgb(8, 217, 245)',height:'40px'}}
+                    leftContent={[
+                        <span>真题推荐</span>
+                    ]}
+                    rightContent={[
+                        <Link to='/zhenti'>
+                            <span style={{color:'white'}}>更多>></span>
+                        </Link>
+                    ]}
+                    ></NavBar>
+                    <div style={{
+                        width:'100%',
+                        height:'100px',
+                        background:'#fff'
+                    }}>
+                        <img src="img/timg.jpg" style={{
+                            width:'30%',
+                            marginTop:'20px'
+                        }}/>
+                        <span style={{float:'right',lineHeight:'100px',marginRight:'10%'}}>2018全国高考卷数学一卷</span>
+                    </div>
+                    <WhiteSpace/>
+                    <div style={{
+                        width:'100%',
+                        height:'100px',
+                        background:'#fff'
+                    }}>
+                        <img src="img/timg.jpg" style={{
+                            width:'30%',
+                            marginTop:'20px'
+                        }}/>
+                        <span style={{float:'right',lineHeight:'100px',marginRight:'10%'}}>2018全国高考卷数学一卷</span>
+                    </div>
+                    <WhiteSpace/>
+                    <div style={{
+                        width:'100%',
+                        height:'100px',
+                        background:'#fff'
+                    }}>
+                        <img src="img/timg.jpg" style={{
+                            width:'30%',
+                            marginTop:'20px'
+                        }}/>
+                        <span style={{float:'right',lineHeight:'100px',marginRight:'10%'}}>2018全国高考卷数学一卷</span>
+                    </div>
+                    <WhiteSpace/>
+                    <div style={{
+                        width:'100%',
+                        height:'100px',
+                        background:'#fff'
+                    }}>
+                        <img src="img/timg.jpg" style={{
+                            width:'30%',
+                            marginTop:'20px'
+                        }}/>
+                        <span style={{float:'right',lineHeight:'100px',marginRight:'10%'}}>2018全国高考卷数学一卷</span>
+                    </div>
+                    <WhiteSpace/>
+                    <div style={{
+                        width:'100%',
+                        height:'100px',
+                        background:'#fff'
+                    }}>
+                        <img src="img/timg.jpg" style={{
+                            width:'30%',
+                            marginTop:'20px'
+                        }}/>
+                        <span style={{float:'right',lineHeight:'100px',marginRight:'10%'}}>2018全国高考卷数学一卷</span>
+                    </div>
+                    <WhiteSpace/>
+                    <div style={{width:'100%'}}>
+                        <span style={{marginLeft:'35%',color:'rgb(8, 217, 245)'}}>亲，我是有底线的~</span>
+                    </div>
+                    <div style={{height:'50px'}}></div>
+                </div>
+                <WhiteSpace/>
                 <Footer/>
             </div>
         )
     }
 }
+
+
+
