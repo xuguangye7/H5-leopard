@@ -50,7 +50,7 @@ export default class AppTab extends Component {
                         }}
                     />
                     }
-                    selected={this.state.selectedTab === "blueTab"}
+                    //selected={this.state.selectedTab === "blueTab"}
                     onPress={() => {
                     this.setState({
                         selectedTab: "blueTab"
@@ -76,7 +76,7 @@ export default class AppTab extends Component {
                         width: "22px",
                         height: "22px",
                         background:
-                            "url(img/kecheng1.png) center center /  21px 21px no-repeat"
+                            "url(img/kecheng2.png) center center /  21px 21px no-repeat"
                         }}
                     />
                     }
@@ -98,7 +98,7 @@ export default class AppTab extends Component {
                         width: "22px",
                         height: "22px",
                         background:
-                            "url(img/shequ.png) center center /  21px 21px no-repeat"
+                            "url(img/talk2.png) center center /  21px 21px no-repeat"
                         }}
                     />
                     }
@@ -108,7 +108,7 @@ export default class AppTab extends Component {
                         width: "22px",
                         height: "22px",
                         background:
-                            "url(img/talk.png) center center /  21px 21px no-repeat"
+                            "url(img/talk3.png) center center /  21px 21px no-repeat"
                         }}
                     />
                     }
@@ -131,7 +131,7 @@ export default class AppTab extends Component {
                         width: "22px",
                         height: "22px",
                         background:
-                            "url(img/wode.png) center center /  21px 21px no-repeat"
+                            "url(img/我的.png) center center /  21px 21px no-repeat"
                         }}
                     />
                     }
@@ -141,7 +141,7 @@ export default class AppTab extends Component {
                         width: "22px",
                         height: "22px",
                         background:
-                            "url(img/wode1.png) center center /  21px 21px no-repeat"
+                            "url(img/我的1.png) center center /  21px 21px no-repeat"
                         }}
                     />
                     }
