@@ -131,7 +131,7 @@ function Grade(){
                         <Icon key="0" type="left" style={{color:'white'}} />
                     </Link>
                 ]}
-            >我的年级</NavBar>
+            >修改信息</NavBar>
         </div>
     )
 }
@@ -204,7 +204,7 @@ function Opinion(){
             <WhiteSpace/>
             <WingBlank>
                 <span>告诉我们您所遇到的问题，可输入10~1000字</span>
-                <textarea rows="5" cols="43" placeholder='完整描述您的问题，有助于得到更精确的答复' style={{marginTop:'10px'}}/>
+                <textarea rows="5" cols="40" placeholder='完整描述您的问题，有助于得到更精确的答复' style={{marginTop:'10px'}}/>
             </WingBlank>
             <WingBlank>
                 <span  style={{marginTop:'10px'}}>联系电话：</span>

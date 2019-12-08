@@ -50,6 +50,20 @@ export default class Setting extends Component {
                             关于我们
                         </Item>
                     </Link>
+                    <WhiteSpace/>
+                        <Link to='/grade'>
+                            <Item
+                            arrow="horizontal"
+                            thumb="../img/xiugai.png"
+                            multipleLine
+                            onClick={() => {}}
+                            platform="android"
+                            >
+                            修改信息
+                            </Item>
+                        </Link>
+                    <WhiteSpace />
+                    <WhiteSpace />
                     <WhiteSpace />
                     <Link to='/'>
                         <Button type="warning">退出登录</Button>

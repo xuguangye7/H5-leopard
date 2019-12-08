@@ -48,18 +48,6 @@ export default class Mine extends Component {
                         </Item>
                     </Link>
                     
-                    <Link to='/grade'>
-                        <Item
-                        arrow="horizontal"
-                        thumb="../img/nianji.png"
-                        multipleLine
-                        onClick={() => {}}
-                        platform="android"
-                        >
-                        我的年级
-                        </Item>
-                    </Link>
-                    
                     <Link to='/collect'>
                         <Item
                         arrow="horizontal"

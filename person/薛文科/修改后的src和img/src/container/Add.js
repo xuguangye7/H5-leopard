@@ -5,8 +5,27 @@ export default class Add extends Component {
     constructor(){
         super();
         this.state={
-            scontent:''
+            scontent:'',
+            data:[]
         }
+    }
+    componentDidMount(){
+        fetch('http://129.211.62.80:8080/essay')
+            .then(res=>res.json())
+            .then(res=>{
+                this.setState({
+                    data:res.content
+                })
+            })
+    }
+    componentDidUpdate(){
+        fetch('http://129.211.62.80:8080/essay')
+            .then(res=>res.json())
+            .then(res=>{
+                this.setState({
+                    data:res.content
+                })
+            })
     }
     handlechange=(e)=>{
         this.setState({
@@ -19,13 +38,13 @@ export default class Add extends Component {
         e.preventDefault();
         // 把表单用的最终数据从state中提取出来,传入请求
         const post ={
-            sno:'1',
-            smane:this.state.scontent.slice(5,1),
+            sno:this.state.data.length+1,
+            smane:'hello',
             scontent:this.state.scontent,
             stime:'2019/12/6'
 
         }
-        fetch('http://129.211.62.80:8080/essay',{
+        fetch('http://129.211.62.80:8080/essay/add',{
             // post提交
             method:"POST",
             body:JSON.stringify(post)//把提交的内容转字符串
@@ -33,10 +52,12 @@ export default class Add extends Component {
         .then(res =>res.json())
         .then(data =>{
             console.log(data)
+            this.props.history.push('/app/talk')
             alert('发表成功')
         })
 
     }
+
     render() {
         return (
             <div>
@@ -73,7 +94,9 @@ export default class Add extends Component {
                         marginLeft:'10%',
                         border:'1px solid rgb(219, 238, 240)',
                         borderRadius:'10px'
-                    }}/>
+                    }}
+                    onChange={this.handlechange}
+                    />
                     <input type="submit" value="发表" style={{
                         color:'white',
                         background:'#3fcccb',

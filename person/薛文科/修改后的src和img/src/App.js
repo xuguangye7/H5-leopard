@@ -22,7 +22,7 @@ class App extends React.Component {
     >
         <TabBar
         unselectedTintColor="black"
-        tintColor="#707070"
+        tintColor="#099ff5"
         barTintColor="#fff"
         >
         <TabBar.Item
