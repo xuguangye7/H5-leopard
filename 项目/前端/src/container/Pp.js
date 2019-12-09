@@ -14,7 +14,7 @@ export default class HyperTextInput extends Component {
     render() {
         return (
             <Fragment>
-                <div style={{
+                {/* <div style={{
                     position:'fixed',
                     top:'0',
                     left:'0',
@@ -24,7 +24,7 @@ export default class HyperTextInput extends Component {
                     backgroundColor:'',
                     background:'url(img/add.jpg) center center /  100% 100%',
                 }}>
-                </div>
+                </div> */}
                 <div id="content" style={{
                     position:'absolute',
                     top:'8%',

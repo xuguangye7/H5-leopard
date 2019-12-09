@@ -9,9 +9,9 @@ export default class Setting extends Component {
         return (
             <div>
                 <NavBar
-                style={{backgroundColor:'blue',color:'white'}}
+                style={{backgroundColor:'#099ff5',color:'white'}}
                 leftContent={[
-                    <Link to='/mine'>
+                    <Link to='/app/mine'>
                         <Icon key="0" type="left" style={{color:'white'}}/>
                     </Link>
                 ]}
@@ -50,6 +50,20 @@ export default class Setting extends Component {
                             关于我们
                         </Item>
                     </Link>
+                    <WhiteSpace/>
+                        <Link to='/grade'>
+                            <Item
+                            arrow="horizontal"
+                            thumb="../img/xiugai.png"
+                            multipleLine
+                            onClick={() => {}}
+                            platform="android"
+                            >
+                            修改信息
+                            </Item>
+                        </Link>
+                    <WhiteSpace />
+                    <WhiteSpace />
                     <WhiteSpace />
                     <Link to='/'>
                         <Button type="warning">退出登录</Button>

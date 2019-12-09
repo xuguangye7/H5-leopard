@@ -13,20 +13,6 @@ export default class Login extends Component {
             pws:''
         }
     }
-    // componentDidMount(){
-    //     fetch('http://129.211.62.80:8080/api')
-    //         .then((res)=>res.json(res))
-    //         .then((res)=>{
-    //             this.setState({data:res.content});
-    //         })
-    // }
-    // componentDidUpdate(){
-    //     fetch('http://129.211.62.80:8080/api')
-    //         .then((res)=>res.json(res))
-    //         .then((res)=>{
-    //             this.setState({data:res.content});
-    //         })
-    // }
     componentWillUnmount = () => {
         this.setState = (state,callback)=>{
         return;
@@ -63,7 +49,7 @@ export default class Login extends Component {
         .then(data =>{
             console.log(data)
             if(data.content){
-                this.props.history.push('/home')
+                this.props.history.push('/app/home')
             }
         })
     }
@@ -77,7 +63,7 @@ export default class Login extends Component {
             }}>
                 <div style={{width:'100%'}}>
                     <NavBar
-                        style={{backgroundColor:'blue',color:'white'}}
+                        style={{backgroundColor:'#099ff5',color:'white'}}
                     >登录</NavBar>
                 </div>
                 <div style={{
@@ -120,8 +106,8 @@ export default class Login extends Component {
                         top:'100%',
                         left:'10%',
                         color:'white',
-                        background:'blue',
-                        border:'1px solid blue',
+                        background:'#099ff5',
+                        border:'1px solid #099ff5',
                         height:'40px',
                         width:'80%',
                         borderRadius:'10px',
@@ -167,7 +153,7 @@ export default class Login extends Component {
                     top:'59%',
                     left:'5%',
                     fontSize:'18px',
-                    color:'white',
+                    color:'#3fcccb',
                     textAlign:'center'
                 }}>
                     你还可以用以下方式登录

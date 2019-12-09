@@ -1,70 +1,120 @@
 import React, { Component } from 'react'
 import { NavBar,Icon, List,WhiteSpace,Button ,Carousel, WingBlank } from 'antd-mobile';
 import {HashRouter as Router,Route,Link} from 'react-router-dom'
-import Footer from '../components/Footer'
+import Tianjia from '../components/Tianjia'
 export default class Talk extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            data:[],
-            value:'关注' 
-        }   
-    }
-    changeValue=()=>{
-        this.setState({
-            value:'已关注'
-        })
+    constructor(){
+        super();
+        this.state={
+            data:[]
+        }
     }
     componentDidMount(){
-        fetch('http://127.0.0.1:8080/')
-            .then((res)=>res.json())
-            .then((res)=>{
-                this.setState({data:res.data});
+        fetch('http://129.211.62.80:8080/essay')
+            .then(res=>res.json())
+            .then(res=>{
+                this.setState({
+                    data:res.content
+                })
             })
     }
-    render() {
+    componentDidUpdate(){
+        fetch('http://129.211.62.80:8080/essay')
+            .then(res=>res.json())
+            .then(res=>{
+                this.setState({
+                    data:res.content
+                })
+            })
+    }
+    delete=(idx)=>{
+        console.log(idx)
+        fetch('http://129.211.62.80:8080/essay/delete?sno='+idx.sno)
+            .then(res=>res.json())
+            .then((res)=>{
+                console.log('ok')
+            })
+    }
+    render(){
         return (
             <div>
+                
                 <NavBar
-                style={{backgroundColor:'blue',color:'white'}}
-                leftContent={[
-                    <Link to='/home'>
-                        <Icon key="0" type="left" style={{color:'white'}} />
-                    </Link>
-                ]}
-                rightContent={[
-                    <Link to='/add'>
-                        <img src="img/jiahao.png" style={{width:'25%',marginLeft:'70px'}}/>
-                    </Link>
-                ]}
-                >社区</NavBar>
-                <div style={{width:'100%',
-                    background:'url(img/sx.jpg) center center /  100% 180px no-repeat',
-                    height:'180px',
-                    textAlign:'center',
-                    lineHeight:'180px',
-                    color:'blue',
-                    fontSize:'30px'
+                style={{backgroundColor:'#099ff5',color:'white',textAlign:'center'}}
+                ><h3>问答</h3></NavBar>
+                {/* <div style={{
+                        marginTop:'5px',
+                        width:'100%',
+                        height:'60px',
+                        //backgroundColor:'red',
                 }}>
-                    欢迎来到数学圣地
+                    <input type="search" style={{
+                        float:'left',
+                        width:'90%',
+                        height:'40px',
+                        marginLeft:'5%',
+                        borderRadius:'20px',
+                        textAlign:'center',
+                        border:'solid 1px #bfbfbf'
+                    }} placeholder="请输入查询题目"/>
+                </div> */}
+                <div style={{width:'100%',
+                    position:'relative',
+                    height:'30%',
+                    margin:'0 auto',
+                }}>
+                    <img src='../img/lantian.jpg' style={{
+                        width:'100%',
+                        borderRadius:'0 0 5% 5%',
+                        zIndex:'-1',
+                        opacity:'0.7',
+                        top:'0',
+                    }} />
                 </div>
                 <WhiteSpace/>
-                <WingBlank>
+                <div style={{width:'100%'}}>
+                    <WingBlank>
                     {
-                        this.state.data.map((item,index)=>
-                            <li key={index} style={{}}>
-                                <img src={`img/shuxue${item.id-1}.jpg`} style={{height:'40px',width:'40px',float:'left'}}/>
-                                <span style={{lineHeight:'20px',textAlign:'center',marginLeft:'10px',marginRight:'10px'}}>{item.username}</span>
-                                <br/><br/>
-                                <p>{item.contents}</p>
-                                <button style={{marginLeft:'30%',background:'white',border:'1px solid white'}}>点赞</button>
-                    <button style={{marginLeft:'10%',background:'red',border:'1px solid red'}} onClick={this.changeValue}>{this.state.value}</button>
-                                <hr/>
+                        this.state.data.reverse().map((item,index)=>
+                            <li key={index} style={{
+                                width:"100%",
+                                borderBottom:'1px solid #bfbfbf',
+                                marginTop:'20px',
+                                paddingBottom:'5px'
+                            }}>
+                                <span style={{
+                                    marginLeft:'10px',
+                                    fontSize:'12px'
+                                }}>{item.smane}</span>
+                                <div style={{
+                                    margin:'0 auto',
+                                    fontSize:'13px',
+                                    marginLeft:'15px',
+                                    marginTop:'10px',
+                                }}> {item.scontent}</div>
+                                <p style={{
+                                    color:'#707070',
+                                    marginLeft:'10px',
+                                    width:'100%'
+                                }}>#{item.stime} 
+                                    <button style={{
+                                        background:'none',
+                                        border:'0',
+                                        color:'#099ff5',
+                                        fontSize:'13px',
+                                        float:'right'
+                                    }}
+                                    onClick={()=>this.delete(item)}
+                                    >
+                                        删除
+                                    </button>
+                                </p>
                             </li>
                         )
                     }
-                </WingBlank>
-                <Footer/>
+                    </WingBlank>
+                </div>
+                <Tianjia/>
             </div>
         )
     }
