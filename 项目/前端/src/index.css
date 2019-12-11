@@ -1,21 +1,26 @@
-
-a{
-  text-decoration: none;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-.wendang li{
-  width: 200px;
-  height: 240px;
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+li{
+  list-style: none;
+}
+.tab a{
+  margin-right:20%;
   float: left;
-  margin-left: 40px;
 }
-.liebiao li{
-  height:50px;
-  line-height: 50px;
-  border:1px solid black;
+.tab a:first-child{
+  margin-left:10px;
 }
-.liebiao li{
-  height:50px;
-  line-height: 50px;
-  border:1px solid black;
+.tab a:last-child{
+  margin-right: 0;
 }
-

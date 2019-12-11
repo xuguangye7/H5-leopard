@@ -1,42 +1,161 @@
-import React,{Component} from 'react';
-import {HashRouter as Router,Route,Link} from 'react-router-dom'
-import logo from './logo.svg';
-import './App.css';
-import Shouye from './container/Shouye'
-import Tiezi from './container/Tiezi'
-import Wenjian from './container/Wenjian'
-import Yonghu from './container/Yonghu'
-import Xitong from './container/Xitong'
-import Hlogin from './container/Hlogin'
-import Hzhuce from './container/Hzhuce'
-import Juanyi from './container/Juanyi'
-import Juaner from './container/Juaner'
-import Juansan from './container/Juansan'
-import Hanshu from './container/Hanshu'
-import Daoshu from './container/Daoshu'
-import Sanjiao from './container/Sanjiao'
-export default class App extends Component {
-  render() {
+import React, { Component,useState,useEffect } from 'react';
+import {HashRouter as Router,Route,Link,withRouter} from 'react-router-dom'
+import { TabBar,Icon, List,WhiteSpace,Button ,Carousel,WingBlank,Tabs} from 'antd-mobile';
+import AppTab from './container/AppTab'
+import Home from './container/Home';
+import Talk from './container/Talk'
+import Subject from './container/Subject'
+import Mine from './container/Mine'
+class App extends React.Component {
+  
+  
+    render() {
       return (
-          <Router> 
-              <div>
-                  <div className="content">
-                      <Route exact path='/' component={Hlogin}/>
-                      <Route path='/zhuce' component={Hzhuce}/>
-                      <Route path='/shouye' component={Shouye}/>
-                      <Route path='/xitong' component={Xitong}/>
-                      <Route path='/yonghu' component={Yonghu}/>
-                      <Route path='/wenjian' component={Wenjian}/>
-                      <Route path='/tiezi' component={Tiezi}/>
-                      <Route path='/juanyi' component={Juanyi}/>
-                      <Route path='/juaner' component={Juaner}/>
-                      <Route path='/juansan' component={Juansan}/>
-                      <Route path='/hanshu' component={Hanshu}/>
-                      <Route path='/daoshu' component={Daoshu}/>
-                      <Route path='/sanjiao' component={Sanjiao}/>
-                  </div>
-              </div>
-          </Router>
-      )
+        <div
+        style={{
+        position: "fixed",
+        height: "100%",
+        width: "100%",
+        
+        top: 0
+        }}
+    >
+        <TabBar
+        unselectedTintColor="black"
+        tintColor="#099ff5"
+        barTintColor="#fff"
+        >
+        <TabBar.Item
+            title="首页"
+            key="Life"
+            icon={
+            <div
+                style={{
+                width: "22px",
+                height: "22px",
+                background:
+                    "url(../img/shouye.png) center center /  21px 21px no-repeat"
+                }}
+            />
+            }
+            selectedIcon={
+            <div
+                style={{
+                width: "22px",
+                height: "22px",
+                background:
+                    "url(../img/shouye1.png) center center /  21px 21px no-repeat"
+                }}
+            />
+            }
+            selected={
+                this.props.location.pathname==='/app/home'
+            }
+            onPress={() => {
+                this.props.history.push('/app/home')
+            }}
+        >
+            <Home />
+        </TabBar.Item>
+        <TabBar.Item
+            title="题库"
+            key="Life"
+            icon={
+            <div
+                style={{
+                width: "22px",
+                height: "22px",
+                background:
+                    "url(../img/kecheng.png) center center /  21px 21px no-repeat"
+                }}
+            />
+            }
+            selectedIcon={
+            <div
+                style={{
+                width: "22px",
+                height: "22px",
+                background:
+                    "url(../img/kecheng1.png) center center /  21px 21px no-repeat"
+                }}
+            />
+            }
+            selected={
+                this.props.location.pathname==='/app/subject'
+            }
+            onPress={() => {
+                this.props.history.push('/app/subject')
+            }}
+        >
+            <Subject />
+        </TabBar.Item>
+        <TabBar.Item
+            title="问答"
+            key="Life"
+            icon={
+            <div
+                style={{
+                width: "22px",
+                height: "22px",
+                background:
+                    "url(../img/talk2.png) center center /  21px 21px no-repeat"
+                }}
+            />
+            }
+            selectedIcon={
+            <div
+                style={{
+                width: "22px",
+                height: "22px",
+                background:
+                    "url(../img/talk3.png) center center /  21px 21px no-repeat"
+                }}
+            />
+            }
+            selected={
+                this.props.location.pathname==='/app/talk'
+            }
+            onPress={() => {
+                this.props.history.push('/app/talk')
+            }}
+        >
+            <Talk />
+        </TabBar.Item>
+        <TabBar.Item
+            title="我的"
+            key="Life"
+            icon={
+            <div
+                style={{
+                width: "22px",
+                height: "22px",
+                background:
+                    "url(../img/我的.png) center center /  21px 21px no-repeat"
+                }}
+            />
+            }
+            selectedIcon={
+            <div
+                style={{
+                width: "22px",
+                height: "22px",
+                background:
+                    "url(../img/我的1.png) center center /  21px 21px no-repeat"
+                }}
+            />
+            }
+            selected={
+                this.props.location.pathname==='/app/mine'
+            }
+            onPress={() => {
+                this.props.history.push('/app/mine')
+            }}
+        >
+            <Mine />
+        </TabBar.Item>
+        </TabBar>
+    </div>
+      );
+    }
   }
-}
+export default withRouter(App);

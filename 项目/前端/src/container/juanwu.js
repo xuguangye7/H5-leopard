@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {NavBar,Icon,WhiteSpace,Tabs,List} from 'antd-mobile'
-export default class juanyi extends Component {
+export default class juanwu extends Component {
     render() {
         return (
             <div>
@@ -14,7 +14,7 @@ export default class juanyi extends Component {
                 style={{backgroundColor:'#099ff5',color:'white',textAlign:'center'}}
                 ><h3>历年真题</h3></NavBar>
                 <p style={{fontSize:"18px",textAlign:"center",fontWeight:"bolder",marginTop:"15px"}}>
-                    2019年全国统一高考数学试卷（理科）（新课标）卷一
+                    2018年全国统一高考数学试卷（理科）（新课标）卷二
                 </p>
                 <p style={{fontSize:"16px",float:"left",marginTop:"-10px",fontWeight:"bolder",marginLeft:"6px"}}>一、单选题</p>
                 <p style={{fontSize:"14px",float:"left",marginTop:"0px",marginLeft:"6px"}}>1.已知集合M=（-4,2）,N=（x2-x-6>0）则M交N=</p>
