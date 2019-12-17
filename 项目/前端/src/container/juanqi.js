@@ -4,7 +4,7 @@ import {NavBar,Icon,WhiteSpace,Tabs,List} from 'antd-mobile'
 export default class juanqi extends Component {
     render() {
         return (
-            <div>
+            <div style={{fontFamily:'Kaiti'}}>
                 <NavBar
                 leftContent={[
                     <Link to='/Zhenti'>

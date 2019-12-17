@@ -5,7 +5,7 @@ import H3 from './H3'
 export default class Gudian extends Component {
     render() {
         return (
-            <div>
+            <div style={{fontFamily:'Kaiti'}}v>
                 <NavBar
                 leftContent={[
                     <Link to='/ziliao'>

@@ -5,7 +5,7 @@ import H3 from './H3'
 export default class Jihe extends Component {
     render() {
         return (
-            <div>
+            <div style={{fontFamily:'Kaiti'}}>
                 <NavBar
                 leftContent={[
                     <Link to='/ziliao'>

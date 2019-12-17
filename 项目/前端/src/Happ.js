@@ -72,6 +72,7 @@ import Liti from './ziliao/Liti'
 import Jiexi from './ziliao/Jiexi'
 import Gailu from './ziliao/Gailu'
 import Todolist from './Todolist/Todolist'
+import a from './container/a'
 export default class Home extends Component {
     render() {
         return (
@@ -162,6 +163,7 @@ export default class Home extends Component {
                         <Route path='/liti' component={Liti} />
                         <Route path='/jiexi' component={Jiexi} />
                         <Route path='/gailu' component={Gailu} />
+                        <Route path='/a' component={a} />
                     </Switch>
                </div>
             </Router>
@@ -211,7 +213,7 @@ function Work(){
     return (
         <div style={{background:'url(../img/yun.png) center center no-repeat',height:'618px'}}>
             <NavBar
-                style={{backgroundColor:'#099ff5',color:'white'}}
+                style={{backgroundColor:'#099ff5',color:'white',fontFamily:'Kaiti'}}
                 leftContent={[
                     <Link to='/app/mine'>
                         <Icon key="0" type="left" style={{color:'white'}} />
@@ -220,7 +222,7 @@ function Work(){
             >我的日程</NavBar>
             <WhiteSpace/>
             <WingBlank>
-                <h4>在这里制定您今天的任务</h4>
+                <h4 style={{fontFamily:'Kaiti',fontWeight:"bolder"}}>在这里制定您今天的任务</h4>
                 <Todolist/>
             </WingBlank>
         </div>
@@ -292,11 +294,11 @@ function Collect(){
 function Help(){
     // let data=useFetch();
     return (
-        <div>
+        <div style={{fontFamily:'Kaiti'}}>
             <NavBar
                 style={{backgroundColor:'#099ff5',color:'white'}}
                 leftContent={[
-                    <Link to='/s'>
+                    <Link to='/app/mine'>
                         <Icon key="0" type="left" style={{color:'white'}} />
                     </Link>
                 ]}
@@ -326,7 +328,7 @@ function Help(){
 //意见反馈
 function Opinion(){
     return (
-        <div>
+        <div style={{fontFamily:'Kaiti'}}>
             <NavBar
                 style={{backgroundColor:'#099ff5',color:'white'}}
                 leftContent={[
@@ -358,11 +360,11 @@ function Opinion(){
 //关于我们
 function Aboutus(){
     return (
-        <div style={{width:'100%'}}>
+        <div style={{width:'100%',fontFamily:'Kaiti'}}>
             <NavBar
                 style={{backgroundColor:'#099ff5',color:'white'}}
                 leftContent={[
-                    <Link to='/s'>
+                    <Link to='/app/mine'>
                         <Icon key="0" type="left" style={{color:'white'}} />
                     </Link>
                 ]}

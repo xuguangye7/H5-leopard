@@ -1,6 +1,26 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 export default class shouye extends Component {
+    constructor(){
+        super();
+        this.state={
+            data:[]
+        }
+    }
+    componentDidMount(){
+        fetch('http://129.211.62.80:8080/login/get')
+            .then((res)=>res.json(res))
+            .then((res)=>{
+                this.setState({data:res.content});
+            })
+    }
+    componentDidUpdate(){
+        fetch('http://129.211.62.80:8080/login/get')
+            .then((res)=>res.json(res))
+            .then((res)=>{
+                this.setState({data:res.content});
+            })
+    }
     render() {
         return (
             <div style={{height:'800px',width:'1400px',margin:"0 auto"}}>
@@ -107,7 +127,13 @@ export default class shouye extends Component {
                     </div>
 
                     <div style={{width:'100%',height:'80px',float:'top'}}>
-                        <p style={{marginLeft:'50px'}}>&nbsp;&nbsp;用户名。。。</p>
+                        <p style={{marginLeft:'50px'}}>&nbsp;&nbsp;用户名
+                        {
+                            this.state.data.map((item,index)=>
+                            {item.sname}
+                            )
+                        }
+                        </p>
                         <hr/>
                         
                     </div>

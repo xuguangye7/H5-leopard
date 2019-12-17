@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 export default class Gailv extends Component {
     render() {
         return (
-            <div style={{backgroundColor:"#fff"}}>
+            <div style={{backgroundColor:"#fff",fontFamily:'Kaiti'}}>
                 <NavBar
                 leftContent={[
                     <Link to='/app/subject'>

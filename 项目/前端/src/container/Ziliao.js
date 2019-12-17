@@ -16,7 +16,7 @@ const Item = List.Item;
 export default class Ziliao extends Component {
     render() {
         return (
-            <div>
+            <div style={{fontFamily:'Kaiti'}}>
                 <NavBar
                 leftContent={[
                     <Link to='app/home'>

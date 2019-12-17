@@ -9,6 +9,7 @@ export default class Add extends Component {
         this.state={
             scontent:'',
             data:[],
+            a:1,
             time:time
         }
     }
@@ -17,7 +18,9 @@ export default class Add extends Component {
             .then(res=>res.json())
             .then(res=>{
                 this.setState({
-                    data:res.content
+                    data:res.content,
+                    a:this.state.a+1
+                    
                 })
             })
     }
@@ -41,10 +44,12 @@ export default class Add extends Component {
         e.preventDefault();
         // 把表单用的最终数据从state中提取出来,传入请求
         const post ={
-            sno:this.state.data.length+1,
-            smane:this.state.data[0].nicheng,
+            sno:this.state.a,
+            smane:this.state.data[0].sname,
             scontent:this.state.scontent,
-            stime:this.state.time
+            stime:this.state.time,
+            touxiang:this.state.data[0].sclass,
+            sphone:this.state.data[0].sphone
 
         }
         fetch('http://129.211.62.80:8080/essay/add',{
@@ -63,7 +68,7 @@ export default class Add extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{background:'url(../img/yun.png) center center no-repeat',height:'618px',fontFamily:'Kaiti'}}>
                 <NavBar
                 style={{color:'#fff',background:"#099ff5"}}
                 leftContent={[
@@ -71,8 +76,8 @@ export default class Add extends Component {
                         <Icon key="0" type="left" style={{color:'white'}} />
                     </Link>
                 ]}
-                >言论</NavBar>
-                <div style={{width:'100%',
+                >分享</NavBar>
+                {/* <div style={{width:'100%',
                     position:'relative',
                     height:'30%',
                     margin:'0 auto',
@@ -84,19 +89,21 @@ export default class Add extends Component {
                         opacity:'0.7',
                         top:'0',
                     }} />
-                </div>
-                <WhiteSpace/>
-                <WhiteSpace/>
-                <div style={{width:'100%',height:'200px'}}></div>
+                </div> */}
+                <div style={{width:'100%'}}></div>
                 <form onSubmit={this.onSubmit.bind(this)}>
-                    <input 
+                    {/* <WhiteSpace/> */}
+                    <textarea
                     type="text"
+                    placeholder="这一刻的想法..."
                     style={{
-                        width:'80%',
-                        height:'40px',
-                        marginLeft:'10%',
+                        width:'100%',
+                        lineHeight:"25px",
+                        height:'200px',
+                        fontFamily:'Kaiti',
+                        // marginLeft:'10%',
                         border:'1px solid rgb(219, 238, 240)',
-                        borderRadius:'10px'
+                        // borderRadius:'10px'
                     }}
                     onChange={this.handlechange}
                     />
@@ -105,6 +112,8 @@ export default class Add extends Component {
                         background:'#3fcccb',
                         border:'1px solid #3fcccb',
                         height:'40px',
+                        fontFamily:'Kaiti',
+                        fontSize:"18px",
                         width:'80%',
                         borderRadius:'10px',
                         marginTop:'10px',

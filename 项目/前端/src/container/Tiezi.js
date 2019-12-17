@@ -24,7 +24,7 @@ export default class tiezi extends Component {
     }
     delete=(idx)=>{
         console.log(idx)
-        fetch('http://129.211.62.80:8080/essay/delete?sno='+idx.sno)
+        fetch('http://129.211.62.80:8080/essay/delete?scontent='+idx.scontent)
             .then(res=>res.json())
             .then((res)=>{
                 console.log('ok')

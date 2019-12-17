@@ -5,21 +5,41 @@ import {NavBar,WingBlank,Icon,WhiteSpace,Tabs,List} from 'antd-mobile'
 export default class Gongshi extends Component {
     render() {
         return (
-            <div>
+            <div style={{
+                width:'100%',
+                height:'100%',
+                backgroundColor:'#fff',
+                fontFamily:'Kaiti'
+            }}>
                 <NavBar
                 leftContent={[
                     <Link to='/app/home'>
                         <Icon key="0" type="left" style={{color:'white'}}/>
                     </Link>
                 ]}
-                style={{backgroundColor:'#099ff5',color:'white',textAlign:'center'}}
-                ><h3>公式</h3></NavBar>
-                
-                <img src="img/1-2.jpg"/>
+                style={{backgroundColor:'#099ff5',color:'white',textAlign:'center',
+                width:'100%',
+                position:'fixed',
+                top:'0',
+                zIndex:'10'
+            }}
+                ><h3 style={{
+                    fontFamily:'Kaiti',
+                }}>公式</h3></NavBar>
+                <div style={{
+                    backgroundColor:'#099ff5',color:'white',textAlign:'center',
+                    width:'100%',height:'45px',zIndex:'10'
+                }}>
+                </div>
+                <img src="img/1-2.jpg" style={{
+                    width:'100%'
+                }}/>
                 <h3>函数与导数公式</h3>
                 <h4>&nbsp;&nbsp;&nbsp;&nbsp;基本常见函数的导数</h4>
                 <WingBlank style={{borderRadius:'5px',backgroundColor:'white'}}>
-                    <p style={{marginLeft:'16px',lineHeight:"25px"}}>
+                    <p style={{marginLeft:'16px',lineHeight:"25px",
+                    border:'solid 1px gray',borderRadius:'10px',
+                    background:'url(../img/gonshi.png) center center /  100% 100%  no-repeat'}}>
                         ① C' = 0（C为常数）  &nbsp;                        
                         ② (xⁿ)' = nxⁿ⁻¹<br/>
                         ③ (sin x)' = cos x &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                        
@@ -32,7 +52,9 @@ export default class Gongshi extends Component {
                 </WingBlank>
                 <h4>&nbsp;&nbsp;&nbsp;&nbsp;导数四则运算</h4>
                 <WingBlank style={{borderRadius:'5px',backgroundColor:'white'}}>
-                    <p style={{marginLeft:'20px',lineHeight:"25px"}}>
+                    <p style={{marginLeft:'20px',lineHeight:"25px",
+                    border:'solid 1px gray',borderRadius:'10px',
+                    background:'url(../img/gonshi.png) center center /  100% 100%  no-repeat'}}>
                         [f(x) ± g(x)]' = f'(x) ± g(x)
                         <br/>[f(x) · g(x)]' = f'(x)g(x) + f(x)g'(x)
                         <br/>[f(x) / g(x)]' = [f'(x)g(x) + f(x)g'(x)] / [g(x)]²
@@ -41,7 +63,9 @@ export default class Gongshi extends Component {
                 <WhiteSpace/>
                 <h3>三角函数诱导公式</h3>
                 <WingBlank style={{borderRadius:'5px',backgroundColor:'white'}}>
-                    <p style={{marginLeft:'20px',lineHeight:"25px"}}>
+                    <p style={{marginLeft:'20px',lineHeight:"25px",
+                border:'solid 1px gray',borderRadius:'10px',
+                background:'url(../img/gonshi.png) center center /  100% 100%  no-repeat'}}>
                         sin(2kπ+α) = sinα  &nbsp;&nbsp;&nbsp;cos(2kπ+α) = cosα  <br/>tan(2kπ+α) = tanα<br/>
                         sin(kπ+α) = -sinα  &nbsp;&nbsp;&nbsp;cos(kπ+α) = -cosα  <br/>tan(kπ+α) = tanα<br/>
                         sin(-α) = -sinα  &nbsp;&nbsp;&nbsp;cos(-α) = cosα  <br/>tan(-α) = -tanα<br/>
@@ -57,7 +81,9 @@ export default class Gongshi extends Component {
                 <h4>&nbsp;&nbsp;&nbsp;&nbsp;通项公式</h4>
                 <h4>&nbsp;&nbsp;&nbsp;&nbsp;基本求和公式</h4>
                 <WingBlank style={{borderRadius:'5px',backgroundColor:'white'}}>
-                    <p style={{marginLeft:'20px',lineHeight:"25px"}}>
+                    <p style={{marginLeft:'20px',lineHeight:"25px",
+                border:'solid 1px gray',borderRadius:'10px',
+                background:'url(../img/gonshi.png) center center /  100% 100%  no-repeat'}}>
                         等差：Sₙ = na₁+[n(n-1)/2]d = [n(a₁+aₙ)/2]<br/>
                         等比：Sₙ = [a₁(1-qⁿ)]/(1-q) = (a₁-aₙq)/(1-q)
                     </p>
@@ -66,7 +92,9 @@ export default class Gongshi extends Component {
                 <h3>解析几何</h3>
                 <h4>&nbsp;&nbsp;&nbsp;&nbsp;直线</h4>
                 <WingBlank style={{borderRadius:'5px',backgroundColor:'white'}}>
-                    <p style={{marginLeft:'20px',lineHeight:"25px"}}>
+                    <p style={{marginLeft:'20px',lineHeight:"25px",
+                border:'solid 1px gray',borderRadius:'10px',
+                background:'url(../img/gonshi.png) center center /  100% 100%  no-repeat'}}>
                         斜率：k = tanα<br/>
                         点斜式：y-y₀ = k(x-x₀)<br/>                    
                         斜截式：y = kx+b<br/>
@@ -81,7 +109,9 @@ export default class Gongshi extends Component {
                 <h4>&nbsp;&nbsp;&nbsp;&nbsp;圆</h4>
                 
                 <WingBlank style={{borderRadius:'5px',backgroundColor:'white'}}>
-                    <p style={{marginLeft:'20px',lineHeight:"25px"}}>
+                    <p style={{marginLeft:'20px',lineHeight:"25px",
+                border:'solid 1px gray',borderRadius:'10px',
+                background:'url(../img/gonshi.png) center center /  100% 100%  no-repeat'}}>
                         标准方程：(x-a)²+(y-b)²=r²<br/>
                         一般方程：x²+y²+Dx+Ey+F=0<br/>
                         圆心到直线距离：d = |Aa+Bb+C|/√(A²+B²)<br/>
@@ -91,7 +121,9 @@ export default class Gongshi extends Component {
                 </WingBlank>
                 <h4>&nbsp;&nbsp;&nbsp;&nbsp;圆锥曲线</h4>
                 <WingBlank style={{borderRadius:'5px',backgroundColor:'white'}}>
-                    <p style={{marginLeft:'20px',lineHeight:"25px"}}>
+                    <p style={{marginLeft:'20px',lineHeight:"25px",
+                border:'solid 1px gray',borderRadius:'10px',
+                background:'url(../img/gonshi.png) center center /  100% 100%  no-repeat'}}>
                         椭圆标准方程：x²/a²+y²/b²=1 或 y²/a²+x²/b²=1<br/>
                         双曲线标准方程：x²/a²-y²/b²=1 或 y²/a²-x²/b²=1<br/>
                         抛物线标准方程：x=2py 或 y=2px<br/>

@@ -33,7 +33,7 @@ export default class Change extends Component {
         // 把表单用的最终数据从state中提取出来,传入请求
         const post ={
             nicheng:this.state.nicheng,
-            qq:this.state.qqcom,
+            // qq:this.state.qqcom,
             pws:this.state.pws,
 
         }
@@ -52,11 +52,11 @@ export default class Change extends Component {
     }
     render() {
         return (
-            <div>
+            <div style={{fontFamily:'Kaiti'}}>
                 <NavBar
                 style={{backgroundColor:'#099ff5',color:'white'}}
                 leftContent={[
-                    <Link to='/app/mine'>
+                    <Link to='/s'>
                         <Icon key="0" type="left" style={{color:'white'}} />
                     </Link>
                 ]}
@@ -66,7 +66,7 @@ export default class Change extends Component {
                     width:'90%',
                     margin:'0 auto',
                     backgroundColor:'rgb(219, 238, 240)',
-                    height:'330px',
+                    height:'300px',
                     borderRadius:'20px',
                     top:'15%',
                     left:'5%',
@@ -82,12 +82,13 @@ export default class Change extends Component {
                         width:'100%',
                         height:'40px',
                         position:'absolute',
-                        top:'10%',
+                        top:'20%',
+                        fontFamily:'Kaiti',
                         border:'solid 1px black',
                         borderRadius:'10px'
                     }} />
                     <WhiteSpace/>
-                    <input type="text" autocomplete="off" placeholder="邮箱" onChange={this.handleChange1}  id="username" name="username" style={{
+                    {/* <input type="text" autocomplete="off" placeholder="邮箱" onChange={this.handleChange1}  id="username" name="username" style={{
                         width:'100%',
                         position:'absolute',
                         top:'35%',
@@ -95,12 +96,13 @@ export default class Change extends Component {
                         border:'solid 1px black',
                         borderRadius:'10px'
                     }}/>
-                    <WhiteSpace/>
+                    <WhiteSpace/> */}
                     <input type="text" autocomplete="off" placeholder="密码" onChange={this.handleChange2}  id="pwd"  name="pwd" style={{
                         width:'100%',
                         height:'40px',
                         position:'absolute',
-                        top:'60%',
+                        top:'55%',
+                        fontFamily:'Kaiti',
                         border:'solid 1px black',
                         borderRadius:'10px'
                     }} />
@@ -114,6 +116,8 @@ export default class Change extends Component {
                         border:'1px solid #099ff5',
                         height:'40px',
                         width:'80%',
+                        fontFamily:'Kaiti',
+                        fontSize:"16px",
                         borderRadius:'10px',
                         margin:'0 auto'
                     }}></input>

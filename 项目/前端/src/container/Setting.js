@@ -7,7 +7,7 @@ export default class Setting extends Component {
     render() {
         let url=this.props.match.url;
         return (
-            <div>
+            <div style={{fontFamily:'Kaiti'}}>
                 <NavBar
                 style={{backgroundColor:'#099ff5',color:'white'}}
                 leftContent={[
@@ -17,7 +17,7 @@ export default class Setting extends Component {
                 ]}
                 >设置</NavBar>
                 <List className="my-list">
-                    <Link to='/help'>
+                    {/* <Link to='/help'>
                         <Item
                         arrow="horizontal"
                         thumb="img/bangzhuzhongxin.png"
@@ -28,7 +28,7 @@ export default class Setting extends Component {
                         帮助中心
                         </Item>
                     </Link>
-                    <WhiteSpace />
+                    <WhiteSpace /> */}
                     <Link to='/opinion'>
                         <Item
                         arrow="horizontal"
@@ -39,7 +39,7 @@ export default class Setting extends Component {
                         意见反馈
                         </Item>
                     </Link>
-                    <WhiteSpace />
+                    {/* <WhiteSpace />
                     <Link to='/xinxi'>
                         <Item 
                         arrow="horizontal" 
@@ -50,7 +50,7 @@ export default class Setting extends Component {
                             关于我们
                         </Item>
                     </Link>
-                    <WhiteSpace/>
+                    <WhiteSpace/> */}
                         <Link to='/grade'>
                             <Item
                             arrow="horizontal"

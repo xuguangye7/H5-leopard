@@ -5,30 +5,30 @@ export default class Regiset extends Component {
     constructor(props){
         super(props);
         this.state = {
-            phoneNumber: '',
+            sname: '',
             pws: '',
             nicheng:'',
             validateCode:''
         }
     }
-    handleChange=(e)=>{
+    handleChange2=(e)=>{
         this.setState({
             phoneNumber: e.target.value
         })
     }
-    handleChange1=(e)=>{
+    handleChange3=(e)=>{
         this.setState({
             pws: e.target.value
         })
     }
-    handleChange2=(e)=>{
+    handleChange=(e)=>{
         this.setState({
             nicheng: e.target.value
         })
     }
-    handleChange3=(e)=>{
+    handleChange1=(e)=>{
         this.setState({
-            validateCode: e.target.value
+            sname: e.target.value
         })
     }
     displayResult=(e)=>{
@@ -55,11 +55,11 @@ export default class Regiset extends Component {
         // 把表单用的最终数据从state中提取出来,传入请求
         const post ={
             nicheng:this.state.nicheng,
-            sname:'用户'+this.state.phoneNumber,
+            sname:this.state.sname,
             qq:this.state.phoneNumber.slice(1),
             phoneNumber:this.state.phoneNumber,
-            calss:'7',
             pws:this.state.pws,
+            calss:'img/upload_d2ea9b52c764a35b17c6d3e5831c2bc2.png',
 
         }
         fetch('http://129.211.62.80:8080/register',{
@@ -85,24 +85,31 @@ export default class Regiset extends Component {
             <div style={{
                 width:'100%',
                 height:'812px',
-                background:'url(img/mobile-bg.jpg) center center /  100% 100%  no-repeat',
+                background:'url(img/yun.png) center center  no-repeat',
                 position:'relative'
             }}>
                 <div style={{width:'100%'}}>
                     <NavBar
-                        style={{backgroundColor:'blue',color:'white'}}
+                        style={{backgroundColor:'#099ff5',color:'white',textAlign:'center',position:'fixed',
+                        width:'100%',
+                        top:'0',
+                        zIndex:'10',fontFamily:'Kaiti'}}
                         leftContent={[
                             <Link to='/'>
-                                <Icon key="0" type="left" style={{color:'white'}} />
+                                <Icon key="0" type="left" style={{color:'white',fontFamily:'Kaiti'}} />
                             </Link>
                         ]}
-                    >注册</NavBar>
+                    ><h3 style={{
+                        //width:'100%'
+                    }}>注册</h3></NavBar>
                 </div>
                 <div style={{
                     position:'absolute',
                     width:'90%',
                     margin:'0 auto',
-                    backgroundColor:'rgb(219, 238, 240)',
+                    // backgroundColor:'rgb(219, 238, 240)',
+                    //border:'solid 1px gray',
+                    //boxShadow:'2px 2px black',
                     height:'330px',
                     borderRadius:'20px',
                     top:'15%',
@@ -115,53 +122,57 @@ export default class Regiset extends Component {
                     position:'relative',
                     margin:'0 auto'
                 }}>
-                    <input type="password" autocomplete="off" placeholder="昵称" onChange={this.handleChange2}  id="pwd"  name="pwd" style={{
-                        width:'100%',
+                    <input type="text" autocomplete="off" placeholder="昵称" onChange={this.handleChange}  id="nicheng"  name="nicheng" style={{
+                        width:'97%',
                         height:'40px',
                         position:'absolute',
-                        top:'10%',
-                        border:'solid 1px black',
+                        top:'15%',
+                        fontFamily:'Kaiti',
+                        paddingLeft:'8px',
+                        fontSize:'18px',
+                        border:'solid 1px gray',
                         borderRadius:'10px'
                     }} />
                     <WhiteSpace/>
-                    <input type="text" autocomplete="off" placeholder="手机号" onChange={this.handleChange}  id="username" name="username" style={{
-                        width:'100%',
-                        position:'absolute',
-                        top:'35%',
+                    <input type="text" autocomplete="off" placeholder="姓名" onChange={this.handleChange1}  id="name"  name="name" style={{
+                        width:'97%',
                         height:'40px',
-                        border:'solid 1px black',
+                        position:'absolute',
+                        top:'45%',
+                        fontFamily:'Kaiti',
+                        paddingLeft:'8px',
+                        fontSize:'18px',
+                        border:'solid 1px gray',
+                        borderRadius:'10px'
+                    }} />
+                    <WhiteSpace/>
+                    <input type="text" autocomplete="off" placeholder="手机号" onChange={this.handleChange2}  id="phone" name="phone" style={{
+                        width:'97%',
+                        position:'absolute',
+                        top:'75%',
+                        fontFamily:'Kaiti',
+                        paddingLeft:'8px',
+                        fontSize:'18px',
+                        height:'40px',
+                        border:'solid 1px gray',
                         borderRadius:'10px'
                     }}/>
                     <WhiteSpace/>
-                    <input type="password" autocomplete="off" placeholder="密码" onChange={this.handleChange1}  id="pwd"  name="pwd" style={{
-                        width:'100%',
+                    <input type="password" autocomplete="off" placeholder="密码" onChange={this.handleChange3}  id="pwd"  name="pwd" style={{
+                        width:'97%',
                         height:'40px',
                         position:'absolute',
-                        top:'60%',
-                        border:'solid 1px black',
+                        top:'105%',
+                        fontFamily:'Kaiti',
+                        paddingLeft:'8px',
+                        fontSize:'18px',
+                        border:'solid 1px gray',
                         borderRadius:'10px'
                     }} />
                     <WhiteSpace/>
-                    <input type="password" autocomplete="off" placeholder="验证码" onChange={this.handleChange1}  id="class"  name="class" style={{
-                        width:'60%',
-                        height:'40px',
-                        position:'absolute',
-                        top:'85%',
-                        border:'solid 1px black',
-                        borderRadius:'10px'
-                    }} /><button style={{
-                        width:'37%',
-                        height:'40px',
-                        position:'absolute',
-                        top:'85%',
-                        left:'63%',
-                        border:'solid 1px black',
-                        borderRadius:'10px'
-                    }}>获取验证码</button>
-                    <WhiteSpace/>
                     <input type="submit" id="login" value="去登录" style={{
                         position:'absolute',
-                        top:'120%',
+                        top:'145%',
                         left:'10%',
                         color:'white',
                         background:'#099ff5',
@@ -169,6 +180,8 @@ export default class Regiset extends Component {
                         height:'40px',
                         width:'80%',
                         borderRadius:'10px',
+                        fontFamily:'Kaiti',
+                        fontSize:'20px',
                         margin:'0 auto'
                     }}></input>
                 </form>

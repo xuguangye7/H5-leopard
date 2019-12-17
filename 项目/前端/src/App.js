@@ -16,7 +16,8 @@ class App extends React.Component {
         position: "fixed",
         height: "100%",
         width: "100%",
-        
+        // fontFamily:'STKaiti', 
+        // fontWeight:"bolder",    
         top: 0
         }}
     >
@@ -24,8 +25,10 @@ class App extends React.Component {
         unselectedTintColor="black"
         tintColor="#099ff5"
         barTintColor="#fff"
+        fontFamily="STKaiti"
+        // fontWeight="bolder"
         >
-        <TabBar.Item
+        <TabBar.Item 
             title="首页"
             key="Life"
             icon={
@@ -90,7 +93,7 @@ class App extends React.Component {
             <Subject />
         </TabBar.Item>
         <TabBar.Item
-            title="问答"
+            title="社区"
             key="Life"
             icon={
             <div

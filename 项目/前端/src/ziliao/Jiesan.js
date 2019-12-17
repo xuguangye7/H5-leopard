@@ -4,7 +4,7 @@ import {NavBar,Icon,WhiteSpace,Tabs,List, WingBlank} from 'antd-mobile'
 export default class Jiesan extends Component {
     render() {
         return (
-            <div style={{backgroundColor:"#fff"}}>
+            <div style={{backgroundColor:"#fff",fontFamily:'Kaiti'}}>
                 <NavBar
                 leftContent={[
                     <Link to='/app/subject'>

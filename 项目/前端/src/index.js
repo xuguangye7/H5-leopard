@@ -4,6 +4,7 @@ import './index.css';
 import 'antd-mobile/dist/antd-mobile.css';
 import App from './App';
 import Home from './Happ'
+import Touxiang from './Touxiang'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<Home />, document.getElementById('root'));

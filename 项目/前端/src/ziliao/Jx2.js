@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 export default class Zhixian extends Component {
     render() {
         return (
-            <div>
+            <div style={{fontFamily:'Kaiti'}}>
                 <NavBar
                 leftContent={[
                     <Link to='/ziliao'>

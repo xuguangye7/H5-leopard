@@ -4,7 +4,7 @@ import {HashRouter as Router,Route,Link} from 'react-router-dom'
 export default class Zhenti extends Component {
     render() {
         return (
-            <div>
+            <div style={{fontFamily:'Kaiti'}}>
                 <NavBar
                 leftContent={[
                     <Link to='/app/home'>

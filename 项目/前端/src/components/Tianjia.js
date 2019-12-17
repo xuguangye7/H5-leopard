@@ -10,7 +10,7 @@ export default class Tianjia extends Component {
                     background:'#099ff5',
                     width:'50px',height:'50px',
                     borderRadius:'50px',
-                    top:'75%',
+                    top:'80%',
                     textAlign:'center'
                 }}>
                     <Link to='/add'>
