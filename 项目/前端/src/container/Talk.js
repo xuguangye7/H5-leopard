@@ -44,10 +44,21 @@ export default class Talk extends Component {
     }
     render(){
         return (
-            <div>
+            <div style={{
+                width:'100%',
+                height:'100%',
+            }}>
+               <NavBar
+                style={{backgroundColor:'#099ff5',color:'white',textAlign:'center',
+                width:'100%',
+                position:'fixed',
+                top:'0',
+                zIndex:'10'
+            }}
+            // <div>
                 
-                <NavBar
-                style={{backgroundColor:'#099ff5',color:'white',textAlign:'center'}}
+            //     <NavBar
+            //     style={{backgroundColor:'#099ff5',color:'white',position:'fixed',textAlign:'center'}}
                 rightContent={[
                     <Link to='/add'>
                         <img src="../img/jiahao.png" style={{width:'25%',marginLeft:'65px'}}/>
@@ -79,13 +90,14 @@ export default class Talk extends Component {
                 }}>
                     <img src='../img/lantian.jpg' style={{
                         width:'100%',
-                        position:'fixed',
+                        // position:'fixed',
                         borderRadius:'0 0 5% 5%',
                         zIndex:'-1',
-                        opacity:'0.7',
+                        opacity:'0.6',
                         top:'0',
+                        marginButtom:"20px",
                     }} />
-                    <div style={{width:"60px",height:"60px",borderRadius:"30px",marginLeft:"30px",overflow:"hidden",marginTop:"105px",marginBottom:"20px",backgroundColor:"red"}}>
+                    <div style={{width:"60px",height:"60px",borderRadius:"30px",marginLeft:"30px",overflow:"hidden",position:'absolute',marginTop:"-100px",marginBottom:"200px",backgroundColor:"red"}}>
                         <img src={`http://129.211.62.80:8080/images/img?name=${this.state.img}`} style={{width:'100%',height:'100%'}}></img>
                     </div>
                 </div>

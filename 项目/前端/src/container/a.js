@@ -64,7 +64,8 @@ export default class a extends Component {
             if(res.message){
                 console.log(res.content);
                 localStorage.setItem('data',res.content)
-                this.props.history.push('/a')
+                this.props.history.push('/app/mine')
+                window.location.href=window.location.href;
             }
         })
        

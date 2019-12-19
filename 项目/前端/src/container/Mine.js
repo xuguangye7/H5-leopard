@@ -22,7 +22,7 @@ export default class Mine extends Component {
     }
     render() {
         return (
-            <div style={{height:'800px',backgroundColor:"#fff",fontFamily:'Kaiti'}}>
+            <div style={{height:'589px',backgroundColor:"#fff",fontFamily:'Kaiti'}}>
                 <NavBar
                 style={{backgroundColor:'#099ff5',color:'white'}}
                 ><h3>我的</h3></NavBar>
