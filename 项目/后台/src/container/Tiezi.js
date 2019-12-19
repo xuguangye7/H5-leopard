@@ -136,7 +136,7 @@ export default class tiezi extends Component {
                                     backgroundColor:"rgb(130,185,185)",
                                     lineHeight:'80px',
                                     textAlign:"center",
-                                    border:"1px solid tomato"}}>序号</div>
+                                    border:"1px solid tomato"}}>头像</div>
                                 <div style={{
                                     width:"208px",
                                     height:"80px",
@@ -174,7 +174,11 @@ export default class tiezi extends Component {
                                 {
                                     this.state.data.reverse().map((item,index)=>
                                     <div class="body" style={{border:"1px solid black"}}>
-                                        <div style={{float:'left',width:'210px',height:"80px",lineHeight:"80px",textAlign:'center'}}>{item.sno}</div>
+                                        <div style={{float:'left',width:'210px',height:"80px"}}>
+                                            <div style={{width:'50px',height:'50px',float:'left',borderRadius:"50px",overflow:"hidden",marginTop:'20px',marginLeft:"80px"}}>
+                                                <img src={`http://129.211.62.80:8080/images/img?name=${item.touxiang.slice(4)}`} style={{width:'100%',height:'100%'}} />
+                                            </div>
+                                        </div>
                                         <div style={{float:'left',width:'210px',height:"80px",lineHeight:"80px",textAlign:'center'}}>{item.smane}</div>
                                         <div style={{float:'left',width:'210px',height:"80px",lineHeight:"80px",textAlign:'center'}}>{item.scontent}</div>
                                         <div style={{float:'left',width:'210px',height:"80px",lineHeight:"80px",textAlign:'center'}}>{item.stime}</div>
